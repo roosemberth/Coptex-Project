@@ -4,6 +4,6 @@ Development-Environments
 per.*
 SCP-Boards/*/*.pro
 SCP-Platform/SCP-UbuntuCore
-SCP-Platform/SCP-Kernel/*.git
+SCP-Platform/SCP-Kernel/.git
 SCP-Platform/SCP-src/3rd Party Code
 old.Coptex-Project-Master/old.Coptex-Project-master.zip
