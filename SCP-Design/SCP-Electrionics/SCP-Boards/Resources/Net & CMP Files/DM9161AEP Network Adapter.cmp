@@ -1,0 +1,157 @@
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 21/01/2013 14:06:27
+
+BeginCmp
+TimeStamp = /50FCE6B0;
+Reference = BEAD1;
+ValeurCmp = BEAD;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE482;
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE499;
+Reference = C2;
+ValeurCmp = 10uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE6E3;
+Reference = C3;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE6E2;
+Reference = C4;
+ValeurCmp = 10uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD5961;
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD596B;
+Reference = C6;
+ValeurCmp = 0.1uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE7B9;
+Reference = C7;
+ValeurCmp = 10pF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE796;
+Reference = C8;
+ValeurCmp = 10pF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD5A29;
+Reference = C9;
+ValeurCmp = 1nF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCDDD1;
+Reference = NET1;
+ValeurCmp = NETWORK_INTERFACE;
+IdModule  = WIZ610wi;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD5A9D;
+Reference = R1;
+ValeurCmp = 10K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE7DD;
+Reference = R2;
+ValeurCmp = 6k8;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD58C2;
+Reference = R3;
+ValeurCmp = 49R9;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD58DF;
+Reference = R4;
+ValeurCmp = 49R9;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD58D3;
+Reference = R5;
+ValeurCmp = 49R9;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD58DE;
+Reference = R6;
+ValeurCmp = 49R9;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD59DF;
+Reference = R7;
+ValeurCmp = 75R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FD5A06;
+Reference = R8;
+ValeurCmp = 75R;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCDDE8;
+Reference = T1;
+ValeurCmp = HX1198NL;
+IdModule  = HX1198NL;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCDDC8;
+Reference = U1;
+ValeurCmp = DM9161AEP;
+IdModule  = LQFP48;
+EndCmp
+
+BeginCmp
+TimeStamp = /50FCE78B;
+Reference = X1;
+ValeurCmp = CRYSTAL;
+IdModule  = HC-49V;
+EndCmp
+
+EndListe

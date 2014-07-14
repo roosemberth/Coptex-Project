@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+<language name="holder for library settings">
+
+</language>
+<language name="Assembly">
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/include</includepath>
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/lib/gcc/arm-none-eabi/4.7.3/include</includepath>
+
+</language>
+<language name="GNU C++">
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/include</includepath>
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/lib/gcc/arm-none-eabi/4.7.3/include</includepath>
+
+</language>
+<language name="GNU C">
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/arm-none-eabi/include</includepath>
+<includepath>/home/roosemberth/bin/gcc-arm-none-eabi-4_7-2012q4/lib/gcc/arm-none-eabi/4.7.3/include</includepath>
+
+</language>
+</section>
+<section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+<language name="holder for library settings">
+
+</language>
+<language name="Assembly">
+
+</language>
+<language name="GNU C++">
+
+</language>
+<language name="GNU C">
+
+</language>
+</section>
+</cdtprojectproperties>

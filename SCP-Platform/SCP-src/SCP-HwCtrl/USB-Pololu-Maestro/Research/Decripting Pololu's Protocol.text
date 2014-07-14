@@ -1,0 +1,24 @@
+int libusb_control_transfer(libusb_device_handle *	dev_handle,
+							uint8_t 				bmRequestType,
+							uint8_t 				bRequest,
+							uint16_t 				wValue,
+							uint16_t 				wIndex,
+							unsigned char *			data,
+							uint16_t 				wLength,
+							unsigned int 			timeout 		)
+
+[DllImport("libusb-1.0", EntryPoint = "libusb_control_transfer")]
+static extern unsafe int libusbControlTransfer(	IntPtr 	device_handle, byte 	requesttype ,
+                                        		byte 	request		 , ushort 	value		, ushort index,
+                                        		void * 	bytes		 , ushort 	size		, uint 	 timeout);
+
+[DllImport("libusb-1.0", EntryPoint = "libusb_get_string_descriptor_ascii")]
+internal static unsafe extern int libusbGetStringDescriptorASCII(IntPtr device_handle, byte index, byte *data, int length);
+
+internal static unsafe string getSerialNumber(IntPtr device_handle){
+	LibusbDeviceDescriptor descriptor = getDeviceDescriptor(device_handle);
+	byte[] buffer = new byte[100];
+	fixed(byte* p = buffer);
+	int length = UsbDevice.libusbGetStringDescriptorASCII(device_handle, descriptor.iSerialNumber, p, buffer.Length);
+	///Buffer is an array containing the serial number
+}

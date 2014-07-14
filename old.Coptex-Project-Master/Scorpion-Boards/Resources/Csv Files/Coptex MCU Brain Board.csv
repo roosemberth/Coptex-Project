@@ -1,0 +1,23 @@
+ref	value	Status	ref	value	Status	ref	value	Status	ref	value	Status
+BY1	BY PASS	OK	C12	1Uf 6.3v	N/A	J3	SIL10	Pend	P9	Power Port	OK
+BY2	BY PASS	OK	C13	1Uf 50v	OK	J4	SIL10	Pend	P11	CONN_1	OK
+C1	100Nf	OK	C14	1Uf	N/A	J5	SIL10	Pend	R1	10K	OK
+C2	100Nf	OK	C15	1Uf 6.3v	N/A	J6	SIL10	Pend	R2	10K	OK
+C3	100Nf	OK	C16	10pF	N/A	J7	SIL8	Pend	R3	10K	OK
+C4	100Nf	OK	C17	10pF	N/A	J8	SIL8	Pend	R4	1.5K	OK
+C5	100Nf	OK	C18	1Nf	OK	K1	5V PW SW	Pend	SW1	Erase	Pend
+C6	100Nf	OK	C19	10Nf	N/A	K2	TO 3V SW	Pend	SW2	Manual Reset	Pend
+C7	100Nf	OK	D1	Power Led	N/A	P1	USB Port	OK	U1	LM1117 5.0v 1A	OK
+C8	100Nf	OK	F1	1A	N/A	P5	CONN_1	OK	U2	USBUF01W6	OK
+C9	100Nf	OK	IC1	AT91SAM7X512-AU	Pend	P6	CONN_1	OK	U3	LM1117 3.3v 1A	OK
+C10	1Uf 50v	OK	J1	SIL10	Pend	P7	Power In	N/A	XTAL1	18.432 MHZ	OK
+C11	1uF	N/A	J2	SIL10	Pend	P8	CONN_1	OK			
+											
+cer	100nF	6									
+cer	1uF 6.3V	12									
+cer	10nF	3									
+ele	1uF 50V	4									
+cer	10pF	6									
+5mm	Green led	3									
+3mm	1A fuse	3									
+Block	2Pin black	3									

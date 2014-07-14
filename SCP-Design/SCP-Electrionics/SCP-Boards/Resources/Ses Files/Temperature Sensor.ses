@@ -1,0 +1,223 @@
+
+(session "Temperature Sensor.ses"
+  (base_design "Temperature Sensor.dsn")
+  (placement
+    (resolution mil 10)
+    (component SOT23_6
+      (place TMP1 16200 -7500 front 90)
+    )
+    (component PIN_ARRAY_4x1
+      (place P1 16200 -6350 front 0)
+    )
+    (component GS3
+      (place GS1 17850 -7700 front 0)
+      (place GS2 14550 -7700 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution mil 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "(2012-apr-16-27)-stable")
+    )
+    (library_out 
+      (padstack "Via[0-1]_35:25_mil"
+        (shape
+          (circle Dessus 350 0 0)
+        )
+        (shape
+          (circle Dessous 350 0 0)
+        )
+        (attach off)
+      )
+      (padstack "Via[0-1]_35:0_mil"
+        (shape
+          (circle Dessus 350 0 0)
+        )
+        (shape
+          (circle Dessous 350 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net "N-000001"
+        (wire
+          (path Dessus 80
+            14550 -7700
+            14943 -7700
+          )
+        )
+        (wire
+          (path Dessus 80
+            15700 -7500
+            15143 -7500
+            14943 -7700
+          )
+        )
+      )
+      (net "N-000002"
+        (wire
+          (path Dessus 80
+            17850 -7700
+            17457 -7700
+          )
+        )
+        (wire
+          (path Dessus 80
+            17457 -7700
+            17457 -7542
+            17040 -7125
+            16700 -7125
+          )
+        )
+      )
+      (net "N-000003"
+        (wire
+          (path Dessous 80
+            16700 -6350
+            16700 -7096
+            16327 -7469
+            15692 -7469
+            15222 -7939
+          )
+        )
+        (wire
+          (path Dessus 80
+            15360 -7875
+            15286 -7875
+            15222 -7939
+          )
+        )
+        (wire
+          (path Dessus 80
+            15700 -7875
+            15360 -7875
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 15222 -7939
+        )
+      )
+      (net "N-000004"
+        (wire
+          (path Dessus 80
+            16360 -7500
+            16360 -7332
+            16178 -7150
+          )
+        )
+        (wire
+          (path Dessous 80
+            15700 -6350
+            15700 -6672
+            16178 -7150
+          )
+        )
+        (wire
+          (path Dessus 80
+            14943 -8200
+            15000 -8257
+            16985 -8257
+            17042 -8200
+          )
+        )
+        (wire
+          (path Dessus 80
+            16700 -7500
+            16360 -7500
+          )
+        )
+        (wire
+          (path Dessus 80
+            14550 -8200
+            14943 -8200
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 16178 -7150
+        )
+        (wire
+          (path Dessus 80
+            17850 -8200
+            17042 -8200
+          )
+        )
+        (wire
+          (path Dessus 80
+            16700 -7500
+            17040 -7500
+            17042 -7502
+            17042 -8200
+          )
+        )
+      )
+      (net "N-000005"
+        (wire
+          (path Dessus 80
+            16700 -7875
+            16280 -7875
+            16192 -7787
+          )
+        )
+        (wire
+          (path Dessous 80
+            17700 -6350
+            17700 -6369
+            16282 -7787
+            16192 -7787
+          )
+        )
+        (via "Via[0-1]_35:25_mil" 16192 -7787
+        )
+      )
+      (net "N-000006"
+        (wire
+          (path Dessus 80
+            17850 -6867
+            17815 -6832
+            15712 -6832
+            15700 -6844
+          )
+        )
+        (wire
+          (path Dessus 80
+            14700 -7125
+            14625 -7125
+            14550 -7200
+          )
+        )
+        (wire
+          (path Dessus 80
+            15700 -7125
+            14700 -7125
+          )
+        )
+        (wire
+          (path Dessus 80
+            14700 -7125
+            14700 -6793
+          )
+        )
+        (wire
+          (path Dessus 80
+            14700 -6350
+            14700 -6793
+          )
+        )
+        (wire
+          (path Dessus 80
+            17850 -7200
+            17850 -6867
+          )
+        )
+        (wire
+          (path Dessus 80
+            15700 -7125
+            15700 -6844
+          )
+        )
+      )
+    )
+  )
+)

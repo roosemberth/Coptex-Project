@@ -1,0 +1,296 @@
+# EESchema Netlist Version 1.1 created  21/01/2013 14:06:27
+(
+ ( /50FCE6B0 R3 BEAD1 BEAD
+  ( 1 /AVDDR )
+  ( 2 N-000052 )
+ )
+ ( /50FCE482 C1 C1 0.1uF
+  ( 1 /AVDDR )
+  ( 2 /GND )
+ )
+ ( /50FCE499 C1 C2 10uF
+  ( 1 /AVDDR )
+  ( 2 /GND )
+ )
+ ( /50FCE6E3 C1 C3 0.1uF
+  ( 1 N-000052 )
+  ( 2 /GND )
+ )
+ ( /50FCE6E2 C1 C4 10uF
+  ( 1 N-000052 )
+  ( 2 /GND )
+ )
+ ( /50FD5961 C1 C5 0.1uF
+  ( 1 N-000050 )
+  ( 2 /GND )
+ )
+ ( /50FD596B C1 C6 0.1uF
+  ( 1 N-000054 )
+  ( 2 /GND )
+ )
+ ( /50FCE7B9 C1 C7 10pF
+  ( 1 /GND )
+  ( 2 N-000009 )
+ )
+ ( /50FCE796 C1 C8 10pF
+  ( 1 /GND )
+  ( 2 N-000053 )
+ )
+ ( /50FD5A29 C1 C9 1nF
+  ( 1 N-000056 )
+  ( 2 /GND )
+ )
+ ( /50FCDDD1 WIZ610wi NET1 NETWORK_INTERFACE
+  ( 1 ? )
+  ( 2 ? )
+  ( 3 ? )
+  ( 4 ? )
+  ( 5 ? )
+  ( 6 ? )
+  ( 7 ? )
+  ( 8 ? )
+  ( 9 /3.3V )
+  ( 10 /3.3V )
+  ( 11 /GND )
+  ( 12 /GND )
+  ( 13 /NIC-RXER )
+  ( 14 /NIC-COL )
+  ( 15 /NIC-~LINK_ACT )
+  ( 16 /NIC-MDCK )
+  ( 17 ? )
+  ( 18 /NIC-MDIO )
+  ( 19 /GND )
+  ( 20 /GND )
+  ( 21 /NIC-RXCK )
+  ( 22 /NIC-RXDV )
+  ( 23 /NIC-RXD2 )
+  ( 24 /NIC-RXD0 )
+  ( 25 /NIC-RXD1 )
+  ( 26 /NIC-RXD3 )
+  ( 27 /GND )
+  ( 28 /GND )
+  ( 29 /NIC-TXCK )
+  ( 30 /NIC-TXEN )
+  ( 31 /NIC-TXD3 )
+  ( 32 /NIC-TXD2 )
+  ( 33 /NIC-TXD0 )
+  ( 34 /NIC-TXD1 )
+  ( 35 /GND )
+  ( 36 /NIC-CRS )
+  ( A /NIC-TXER )
+  ( B /NIC-PHY_~RESET )
+  ( C /NIC-~FULL_DUPLEX )
+  ( D /NIC-~SPEED_100 )
+  ( E N-000003 )
+  ( F N-000039 )
+  ( G N-000001 )
+  ( H N-000038 )
+  ( I /NIC-~MDINTR )
+  ( J N-000056 )
+ )
+ ( /50FD5A9D R3 R1 10K
+  ( 1 N-000051 )
+  ( 2 /3.3V )
+ )
+ ( /50FCE7DD R3 R2 6k8
+  ( 1 N-000028 )
+  ( 2 N-000024 )
+ )
+ ( /50FD58C2 R3 R3 49R9
+  ( 1 N-000050 )
+  ( 2 /PHY-TX- )
+ )
+ ( /50FD58DF R3 R4 49R9
+  ( 1 /PHY-RX- )
+  ( 2 N-000054 )
+ )
+ ( /50FD58D3 R3 R5 49R9
+  ( 1 N-000050 )
+  ( 2 /PHY-TX+ )
+ )
+ ( /50FD58DE R3 R6 49R9
+  ( 1 /PHY-RX+ )
+  ( 2 N-000054 )
+ )
+ ( /50FD59DF R3 R7 75R
+  ( 1 N-000056 )
+  ( 2 N-000002 )
+ )
+ ( /50FD5A06 R3 R8 75R
+  ( 1 N-000056 )
+  ( 2 N-000055 )
+ )
+ ( /50FCDDE8 HX1198NL T1 HX1198NL
+  ( 1 N-000003 )
+  ( 2 N-000002 )
+  ( 3 N-000039 )
+  ( 6 N-000001 )
+  ( 7 N-000055 )
+  ( 8 N-000038 )
+  ( 9 /PHY-RX- )
+  ( 10 /AVDDR )
+  ( 11 /PHY-RX+ )
+  ( 14 /PHY-TX- )
+  ( 15 /AVDDR )
+  ( 16 /PHY-TX+ )
+ )
+ ( /50FCDDC8 LQFP48 U1 DM9161AEP
+  ( 1 /AVDDR )
+  ( 2 /AVDDR )
+  ( 3 /PHY-RX+ )
+  ( 4 /PHY-RX- )
+  ( 5 /GND )
+  ( 6 /GND )
+  ( 7 /PHY-TX+ )
+  ( 8 /PHY-TX- )
+  ( 9 N-000052 )
+  ( 10 /GND )
+  ( 11 /NIC-~FULL_DUPLEX )
+  ( 12 /NIC-~SPEED_100 )
+  ( 13 /NIC-~LINK_ACT )
+  ( 14 ? )
+  ( 15 /GND )
+  ( 16 /NIC-RXER )
+  ( 17 /NIC-RXD3 )
+  ( 18 /NIC-RXD2 )
+  ( 19 /NIC-RXD1 )
+  ( 20 /NIC-RXD0 )
+  ( 21 /NIC-RXDV )
+  ( 22 /NIC-RXCK )
+  ( 23 /3.3V )
+  ( 24 /NIC-MDCK )
+  ( 25 /NIC-MDIO )
+  ( 26 /NIC-TXD3 )
+  ( 27 /NIC-TXD2 )
+  ( 28 /NIC-TXD1 )
+  ( 29 /NIC-TXD0 )
+  ( 30 /3.3V )
+  ( 31 N-000051 )
+  ( 32 /NIC-~MDINTR )
+  ( 33 /GND )
+  ( 34 /NIC-TXCK )
+  ( 35 /NIC-CRS )
+  ( 36 /NIC-COL )
+  ( 37 /NIC-TXEN )
+  ( 38 /NIC-TXER )
+  ( 39 /GND )
+  ( 40 /NIC-PHY_~RESET )
+  ( 41 /3.3V )
+  ( 42 N-000009 )
+  ( 43 N-000053 )
+  ( 44 /GND )
+  ( 45 ? )
+  ( 46 /GND )
+  ( 47 N-000028 )
+  ( 48 N-000024 )
+ )
+ ( /50FCE78B HC-49V X1 CRYSTAL
+  ( 1 N-000009 )
+  ( 2 N-000053 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component C4
+ SM*
+ C?
+ C1-1
+$endlist
+$component C5
+ SM*
+ C?
+ C1-1
+$endlist
+$component C6
+ SM*
+ C?
+ C1-1
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ SM*
+ C?
+ C1-1
+$endlist
+$component C9
+ SM*
+ C?
+ C1-1
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R6
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R7
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R8
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}

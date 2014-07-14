@@ -1,0 +1,584 @@
+# EESchema Netlist Version 1.1 created  mar. 26 févr. 2013 17:30:10 CST
+(
+ ( /50EF4141 SIL-7 Adapter1 PCA9698_ADAPTER
+  ( 1 /3.3_H )
+  ( 2 /GND_H )
+  ( 3 /TWD-1 )
+  ( 4 /TWCK-1 )
+  ( 5 /GPIO5 )
+  ( 6 /GPIO6 )
+  ( 7 /GPIO7 )
+ )
+ ( /50ECEDD6 GS2 BY1 BYPASS
+  ( 1 /3.3_L )
+  ( 2 N-000107 )
+ )
+ ( /50F98AEE GS2 BY3.1 BYPASS
+  ( 1 /3.3_M )
+  ( 2 /3.3_H )
+ )
+ ( /50C2149C GS2 BY3.2 BYPASS
+  ( 1 /3.3_L )
+  ( 2 /3.3_H )
+ )
+ ( /50F98AED GS2 BYGND1 BYPASS
+  ( 1 /GND_M )
+  ( 2 /GND_H )
+ )
+ ( /50C214A0 GS2 BYGND2 BYPASS
+  ( 1 /GND_L )
+  ( 2 /GND_H )
+ )
+ ( /50EC9251 D3 D1 DIODESCH
+  ( 1 N-000052 )
+  ( 2 /Filtered_Pw )
+ )
+ ( /50A0C91F LED-5MM D2 FULL_D
+  ( 1 N-000113 )
+  ( 2 /3.3_L )
+ )
+ ( /50A0C912 LED-5MM D3 100MBPS
+  ( 1 N-000082 )
+  ( 2 /3.3_L )
+ )
+ ( /50F97BB5 GS3 GS1 GS3
+  ( 1 N-000112 )
+  ( 2 N-000052 )
+  ( 3 /+5V_H )
+ )
+ ( /50F97B99 GS3 GS2 GS3
+  ( 1 /VIN_H )
+  ( 2 N-000112 )
+  ( 3 /3.3_H )
+ )
+ ( /50F9811B GS3 GS3 GS3
+  ( 1 /3.3_L )
+  ( 2 N-000114 )
+  ( 3 /GND_L )
+ )
+ ( /50F97A12 GS2 GS4 GS2
+  ( 1 N-000126 )
+  ( 2 /MCU-TXCK )
+ )
+ ( /50F97994 GS2 GS5 GS2
+  ( 1 /COL )
+  ( 2 /GND_L )
+ )
+ ( /50F979AF GS2 GS6 GS2
+  ( 1 /MCU-MDIO )
+  ( 2 /NIC-MDIO )
+ )
+ ( /50F979B6 GS2 GS7 GS2
+  ( 1 /MCU-MDCK )
+  ( 2 /NIC-MDCK )
+ )
+ ( /50F979B5 GS2 GS8 GS2
+  ( 1 /MCU-RXER )
+  ( 2 /NIC-RXER )
+ )
+ ( /50F979BF GS2 GS9 GS2
+  ( 1 /MCU-TXER )
+  ( 2 /NIC-TXER )
+ )
+ ( /50F97937 GS2 GS10 GS2
+  ( 1 /~RESET )
+  ( 2 N-000019 )
+ )
+ ( /50F9792A GS2 GS11 GS2
+  ( 1 N-000113 )
+  ( 2 N-000020 )
+ )
+ ( /50F9790F GS2 GS12 GS2
+  ( 1 N-000082 )
+  ( 2 N-000042 )
+ )
+ ( /50F978D5 GS2 GS13 GS2
+  ( 1 /NIC-IRQ )
+  ( 2 N-000025 )
+ )
+ ( /50F97A7E GS2 GS14 GS2
+  ( 1 /MCU-TXCK )
+  ( 2 /MCU-RXCK )
+ )
+ ( /50F97A0D GS2 GS15 GS2
+  ( 1 /MCU-TXEN )
+  ( 2 /NIC-CRS )
+ )
+ ( /50F979C0 GS2 GS16 GS2
+  ( 1 /MCU-CRS )
+  ( 2 /MCU-RXDV )
+ )
+ ( /50F97A11 GS2 GS17 GS2
+  ( 1 /MCU-CRS )
+  ( 2 /NIC-CRS )
+ )
+ ( /512D4193 GS3 GS18 PWM0:_filtered/unfiltered
+  ( 1 /f-PWM0 )
+  ( 2 /PWM0 )
+  ( 3 /uf-PWM0 )
+ )
+ ( /512D419E GS3 GS19 PWM1:_filtered/unfiltered
+  ( 1 /f-PWM1 )
+  ( 2 /PWM1 )
+  ( 3 /uf-PWM1 )
+ )
+ ( /512D41A8 GS3 GS20 PWM2:_filtered/unfiltered
+  ( 1 /f-PWM2 )
+  ( 2 /PWM2 )
+  ( 3 /uf-PWM2 )
+ )
+ ( /512D41B1 GS3 GS21 PWM3:_filtered/unfiltered
+  ( 1 /f-PWM3 )
+  ( 2 /PWM3 )
+  ( 3 /uf-PWM3 )
+ )
+ ( /50EBA612 SIL-3 K1 PWM1
+  ( 1 /uf-PWM1 )
+  ( 2 /Filtered_Pw )
+  ( 3 /GND_M )
+ )
+ ( /50EBA4BC SIL-3 K2 PWM3
+  ( 1 /uf-PWM3 )
+  ( 2 /Filtered_Pw )
+  ( 3 /GND_M )
+ )
+ ( /50EBA45D SIL-3 K3 PWM2
+  ( 1 /uf-PWM2 )
+  ( 2 /Filtered_Pw )
+  ( 3 /GND_M )
+ )
+ ( /50A0B403 Coptex MAIN1 COPTEX_"MCU"_BRAIN_BOARD
+  ( 1 /N-TX )
+  ( 2 N-000073 )
+  ( 3 N-000074 )
+  ( 4 N-000075 )
+  ( 5 N-000076 )
+  ( 6 /3.3_H )
+  ( 7 /+5V_H )
+  ( 8 /GND_H )
+  ( 9 /VIN_H )
+  ( 10 N-000071 )
+  ( 11 N-000061 )
+  ( 12 N-000056 )
+  ( 13 N-000057 )
+  ( 14 N-000058 )
+  ( 15 /~RESET )
+  ( 16 /MCU-TXCK )
+  ( 21 /MCU-TXEN )
+  ( 22 /MCU-TXD0 )
+  ( 23 /MCU-TXD1 )
+  ( 24 /MCU-CRS )
+  ( 25 /MCU-RXD0 )
+  ( 26 /MCU-RXD1 )
+  ( 27 /MCU-RXER )
+  ( 28 /MCU-MDCK )
+  ( 29 /MCU-MDIO )
+  ( 30 /MCU-TXD2 )
+  ( 31 /MCU-TXD3 )
+  ( 32 /MCU-TXER )
+  ( 33 /MCU-RXD2 )
+  ( 34 /MCU-RXD3 )
+  ( 35 /MCU-RXDV )
+  ( 36 /COL )
+  ( 37 /MCU-RXCK )
+  ( 38 /~LINK_ACT )
+  ( 39 /~SERIAL_ACT )
+  ( 40 /NIC-IRQ )
+  ( 41 /GPIO0 )
+  ( 42 /GPIO1 )
+  ( 43 /USART1_DCD )
+  ( 44 /USART1_DSR )
+  ( 45 /USART1_DTR )
+  ( 46 /USART1_RI )
+  ( 47 /PWM0 )
+  ( 48 /PWM1 )
+  ( 49 /PWM2 )
+  ( 50 /PWM3 )
+  ( 51 /IRQ0 )
+  ( 52 /FIQ )
+  ( 53 /DTXD )
+  ( 54 /DRXD )
+  ( 55 /GPIO15 )
+  ( 56 /GPIO14 )
+  ( 57 /GPIO13 )
+  ( 58 /GPIO12 )
+  ( 59 /GPIO11 )
+  ( 60 /GPIO10 )
+  ( 61 /GPIO2 )
+  ( 62 /GPIO3 )
+  ( 63 /GPIO4 )
+  ( 64 /GPIO5 )
+  ( 65 /GPIO6 )
+  ( 66 /GPIO7 )
+  ( 67 /IRQ1 )
+  ( 68 /GPIO8 )
+  ( 69 /GPIO9 )
+  ( 70 /TWCK )
+  ( 71 /TWD )
+  ( 72 /USART1_CTS )
+  ( 73 /USART1_RTS )
+  ( 74 /USART1_SCK )
+  ( 75 /USART1_TXD )
+  ( 76 /USART1_RXD )
+  ( 77 /N-RTS )
+  ( 78 /N-CTS )
+  ( 79 /N-TRIG )
+  ( 80 /N-RX )
+ )
+ ( /50A0B417 WIZ610wi NET1 NETWORK_INTERFACE
+  ( 1 /N-CTS )
+  ( 2 /N-RTS )
+  ( 3 ? )
+  ( 4 /N-TRIG )
+  ( 5 /~SERIAL_ACT )
+  ( 6 ? )
+  ( 7 /N-TX )
+  ( 8 /N-RX )
+  ( 9 /3.3_M )
+  ( 10 /3.3_M )
+  ( 11 /GND_M )
+  ( 12 /GND_M )
+  ( 13 /NIC-RXER )
+  ( 14 /COL )
+  ( 15 /~LINK_ACT )
+  ( 16 /NIC-MDCK )
+  ( 17 N-000080 )
+  ( 18 /NIC-MDIO )
+  ( 19 /GND_M )
+  ( 20 /GND_M )
+  ( 21 /MCU-TXCK )
+  ( 22 /MCU-TXEN )
+  ( 23 /MCU-TXD2 )
+  ( 24 /MCU-TXD0 )
+  ( 25 /MCU-TXD1 )
+  ( 26 /MCU-TXD3 )
+  ( 27 /GND_M )
+  ( 28 /GND_M )
+  ( 29 /MCU-RXCK )
+  ( 30 /MCU-RXDV )
+  ( 31 /MCU-RXD3 )
+  ( 32 /MCU-RXD2 )
+  ( 33 /MCU-RXD0 )
+  ( 34 /MCU-RXD1 )
+  ( 35 /GND_M )
+  ( 36 /NIC-CRS )
+  ( A /NIC-TXER )
+  ( B N-000019 )
+  ( C N-000020 )
+  ( D N-000042 )
+  ( E N-000021 )
+  ( F N-000022 )
+  ( G N-000023 )
+  ( H N-000024 )
+  ( I N-000025 )
+  ( J N-000026 )
+ )
+ ( /50F97F38 PIN_ARRAY_2X2 OSC1 2.5MHz
+  ( 1 /3.3_M )
+  ( 2 /GND_H )
+  ( 3 N-000114 )
+  ( 4 N-000126 )
+ )
+ ( /50C17840 SIL-11 P3 USART_1
+  ( 1 /USART1_SCK )
+  ( 2 /USART1_TXD )
+  ( 3 /USART1_RXD )
+  ( 4 /USART1_RTS )
+  ( 5 /USART1_CTS )
+  ( 6 /USART1_DCD )
+  ( 7 /USART1_DTR )
+  ( 8 /USART1_DSR )
+  ( 9 /USART1_RI )
+  ( 10 /GND_L )
+  ( 11 /3.3_L )
+ )
+ ( /50A0D832 SIL-6 P4 POWER
+  ( 1 /VIN_H )
+  ( 2 /GND_H )
+  ( 3 /+5V_H )
+  ( 4 /GND_H )
+  ( 5 /3.3_H )
+  ( 6 /GND_H )
+ )
+ ( /50F8BC4B SIL-5 P6 IRQ
+  ( 1 /3.3_L )
+  ( 2 /GND_L )
+  ( 3 /IRQ1 )
+  ( 4 /IRQ0 )
+  ( 5 /FIQ )
+ )
+ ( /50ECEAA1 SIL-3 P7 PWM0
+  ( 1 /uf-PWM0 )
+  ( 2 /Filtered_Pw )
+  ( 3 /GND_M )
+ )
+ ( /51004DC0 SIL-8 P8 SSC/SPI1
+  ( 1 /3.3_L )
+  ( 2 /GND_L )
+  ( 3 /GPIO10 )
+  ( 4 /GPIO11 )
+  ( 5 /GPIO12 )
+  ( 6 /GPIO13 )
+  ( 7 /GPIO14 )
+  ( 8 /GPIO15 )
+ )
+ ( /50A0DA31 SIL-6 P9 ANALOG
+  ( 1 /3.3_L )
+  ( 2 /GND_L )
+  ( 3 N-000073 )
+  ( 4 N-000074 )
+  ( 5 N-000075 )
+  ( 6 N-000076 )
+ )
+ ( /50EB3F4D SIL-10 P10 MANAGENENT
+  ( 1 /3.3_H )
+  ( 2 /GND_H )
+  ( 3 N-000071 )
+  ( 4 N-000061 )
+  ( 5 N-000056 )
+  ( 6 N-000057 )
+  ( 7 N-000058 )
+  ( 8 /~RESET )
+  ( 9 /DTXD )
+  ( 10 /DRXD )
+ )
+ ( /50C18F1E SIL-4 P11 TWI
+  ( 1 /3.3_H )
+  ( 2 /GND_H )
+  ( 3 /TWD-1 )
+  ( 4 /TWCK-1 )
+ )
+ ( /50EC992B SIL-4 P12 TWI
+  ( 1 /3.3_H )
+  ( 2 /GND_H )
+  ( 3 /TWD-2 )
+  ( 4 /TWCK-2 )
+ )
+ ( /50A0CC68 SIL-6 P13 TO_ETH_CONN
+  ( 1 N-000081 )
+  ( 2 N-000072 )
+  ( 3 N-000024 )
+  ( 4 N-000023 )
+  ( 5 N-000022 )
+  ( 6 N-000021 )
+ )
+ ( /50C2AA4E 1pin P14 CONN_1
+  ( 1 ? )
+ )
+ ( /50C2AA56 1pin P15 CONN_1
+  ( 1 ? )
+ )
+ ( /50C2AA5B 1pin P16 CONN_1
+  ( 1 ? )
+ )
+ ( /50C2AA5A 1pin P17 CONN_1
+  ( 1 ? )
+ )
+ ( /50EBA2A2 SOT23 Q1 P-CH-AOMOSFET
+  ( 1 /f-PWM1 )
+  ( 2 /Filtered_Pw )
+  ( 3 N-000069 )
+ )
+ ( /50EBA2AE SOT23 Q2 N-CH-AOMOSFET
+  ( 1 /f-PWM1 )
+  ( 2 /GND_M )
+  ( 3 N-000069 )
+ )
+ ( /50EBA37A SOT23 Q3 P-CH-AOMOSFET
+  ( 1 /f-PWM3 )
+  ( 2 /Filtered_Pw )
+  ( 3 N-000106 )
+ )
+ ( /50EBA379 SOT23 Q4 N-CH-AOMOSFET
+  ( 1 /f-PWM3 )
+  ( 2 /GND_M )
+  ( 3 N-000106 )
+ )
+ ( /50EBA31A SOT23 Q5 P-CH-AOMOSFET
+  ( 1 N-000069 )
+  ( 2 /Filtered_Pw )
+  ( 3 /uf-PWM1 )
+ )
+ ( /50EBA319 SOT23 Q6 N-CH-AOMOSFET
+  ( 1 N-000069 )
+  ( 2 /GND_M )
+  ( 3 /uf-PWM1 )
+ )
+ ( /50EBA377 SOT23 Q7 P-CH-AOMOSFET
+  ( 1 N-000106 )
+  ( 2 /Filtered_Pw )
+  ( 3 /uf-PWM3 )
+ )
+ ( /50EBA378 SOT23 Q8 N-CH-AOMOSFET
+  ( 1 N-000106 )
+  ( 2 /GND_M )
+  ( 3 /uf-PWM3 )
+ )
+ ( /50ECEA1F SOT23 Q9 P-CH-AOMOSFET
+  ( 1 /f-PWM0 )
+  ( 2 /Filtered_Pw )
+  ( 3 N-000108 )
+ )
+ ( /50ECEA22 SOT23 Q10 N-CH-AOMOSFET
+  ( 1 /f-PWM0 )
+  ( 2 /GND_M )
+  ( 3 N-000108 )
+ )
+ ( /50EBA387 SOT23 Q11 P-CH-AOMOSFET
+  ( 1 /f-PWM2 )
+  ( 2 /Filtered_Pw )
+  ( 3 N-000110 )
+ )
+ ( /50EBA388 SOT23 Q12 N-CH-AOMOSFET
+  ( 1 /f-PWM2 )
+  ( 2 /GND_M )
+  ( 3 N-000110 )
+ )
+ ( /50ECEA20 SOT23 Q13 P-CH-AOMOSFET
+  ( 1 N-000108 )
+  ( 2 /Filtered_Pw )
+  ( 3 /uf-PWM0 )
+ )
+ ( /50ECEA21 SOT23 Q14 N-CH-AOMOSFET
+  ( 1 N-000108 )
+  ( 2 /GND_M )
+  ( 3 /uf-PWM0 )
+ )
+ ( /50EBA38A SOT23 Q15 P-CH-AOMOSFET
+  ( 1 N-000110 )
+  ( 2 /Filtered_Pw )
+  ( 3 /uf-PWM2 )
+ )
+ ( /50EBA389 SOT23 Q16 N-CH-AOMOSFET
+  ( 1 N-000110 )
+  ( 2 /GND_M )
+  ( 3 /uf-PWM2 )
+ )
+ ( /50EB3937 R3 R1 2.2K
+  ( 1 /TWD )
+  ( 2 /3.3_L )
+ )
+ ( /50EB3925 R3 R2 2.2K
+  ( 1 /TWCK )
+  ( 2 /3.3_L )
+ )
+ ( /50A0CC84 R3 R3 75
+  ( 1 N-000081 )
+  ( 2 N-000026 )
+ )
+ ( /50A0CC8C R3 R4 75
+  ( 1 N-000072 )
+  ( 2 N-000026 )
+ )
+ ( /50A0CDB6 R3 R5 100K
+  ( 1 /GND_L )
+  ( 2 N-000080 )
+ )
+ ( /50EB6F6D GY-521 Sensor1 GY-521
+  ( 1 /3.3_L )
+  ( 2 /GND_L )
+  ( 3 /TWCK-1 )
+  ( 4 /TWD-1 )
+  ( 5 ? )
+  ( 6 ? )
+  ( 7 /3.3_L )
+  ( 8 /GPIO0 )
+ )
+ ( /50EB6F64 10-DOF Sensor2 10-DOF
+  ( 1 N-000107 )
+  ( 2 /3.3_L )
+  ( 3 /GND_L )
+  ( 4 /TWCK-1 )
+  ( 5 /TWD-1 )
+  ( 6 /GPIO0 )
+  ( 7 /GPIO1 )
+  ( 8 /GPIO2 )
+  ( 9 /GPIO3 )
+  ( 10 /GPIO4 )
+ )
+ ( /50A0CD89 SIL-2 SW1 Reset_Wifi_Config
+  ( 1 /3.3_M )
+  ( 2 N-000080 )
+ )
+ ( /50EF6F04 so-8 U1 PCA9517A
+  ( 1 /3.3_L )
+  ( 2 /TWCK )
+  ( 3 /TWD )
+  ( 4 /GND_L )
+  ( 5 /GPIO8 )
+  ( 6 /TWD-1 )
+  ( 7 /TWCK-1 )
+  ( 8 /3.3_L )
+ )
+ ( /50EF6D8C so-8 U2 PCA9517A
+  ( 1 /3.3_L )
+  ( 2 /TWCK )
+  ( 3 /TWD )
+  ( 4 /GND_L )
+  ( 5 /GPIO9 )
+  ( 6 /TWD-2 )
+  ( 7 /TWCK-2 )
+  ( 8 /3.3_L )
+ )
+)
+*
+{ Allowed footprints by component:
+$component D1
+ D?
+ S*
+$endlist
+$component D2
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component D3
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R5
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}

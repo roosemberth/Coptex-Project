@@ -1,0 +1,73 @@
+# EESchema Netlist Version 1.1 created  ven. 31 mai 2013 18:44:56 CST
+(
+ ( /51A93FE8 C1 C1 32pF
+  ( 1 N-000006 )
+  ( 2 N-000009 )
+ )
+ ( /51A93FD6 C1 C2 32pF
+  ( 1 N-000007 )
+  ( 2 N-000009 )
+ )
+ ( /51A93F95 SOTT323-6L CLK-OSC1 SN74LVC1GX04
+  ( 1 ? )
+  ( 2 N-000009 )
+  ( 3 N-000006 )
+  ( 4 N-000004 )
+  ( 5 N-000003 )
+  ( 6 N-000008 )
+ )
+ ( /51A9418D PIN_ARRAY_2X2 OSC1 OSCILATOR
+  ( 1 ? )
+  ( 2 N-000009 )
+  ( 3 N-000008 )
+  ( 4 N-000003 )
+ )
+ ( /51A9400D R3 R1 Rf
+  ( 1 N-000006 )
+  ( 2 N-000004 )
+ )
+ ( /51A94016 R3 R2 Rs
+  ( 1 N-000007 )
+  ( 2 N-000004 )
+ )
+ ( /51A93F9B R-PDSO-N6 Sot-6 TI
+  ( 1 ? )
+  ( 2 N-000009 )
+  ( 3 N-000006 )
+  ( 4 N-000004 )
+  ( 5 N-000003 )
+  ( 6 N-000008 )
+ )
+ ( /51A93FCC HC-49V X1 CRYSTAL
+  ( 1 N-000007 )
+  ( 2 N-000006 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$endfootprintlist
+}

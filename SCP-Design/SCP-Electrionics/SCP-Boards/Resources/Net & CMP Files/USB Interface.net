@@ -1,0 +1,16 @@
+# EESchema Netlist Version 1.1 created  23/01/2013 15:45:19
+(
+ ( /510056F6 conn_usb_A J1 USB_2
+  ( 1 /+5v )
+  ( 2 /D- )
+  ( 3 /D+ )
+  ( 4 /GND )
+ )
+ ( /51005700 SIL-4 P1 CONN_4
+  ( 1 /+5v )
+  ( 2 /D- )
+  ( 3 /D+ )
+  ( 4 /GND )
+ )
+)
+*

@@ -1,0 +1,73 @@
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 20/01/2013 22:20:06
+
+BeginCmp
+TimeStamp = /50F99B4E;
+Reference = GS1;
+ValeurCmp = GS3;
+IdModule  = GS3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99B7A;
+Reference = GS2;
+ValeurCmp = GS3;
+IdModule  = GS3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99B7F;
+Reference = GS3;
+ValeurCmp = GS3;
+IdModule  = GS3;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99AA9;
+Reference = P1;
+ValeurCmp = System_IN;
+IdModule  = SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99CF5;
+Reference = P2;
+ValeurCmp = PORT_0;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99D49;
+Reference = P3;
+ValeurCmp = PORT1;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99D64;
+Reference = P4;
+ValeurCmp = PORT_2;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99D6F;
+Reference = P5;
+ValeurCmp = PORT_3;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99D74;
+Reference = P6;
+ValeurCmp = PORT_4;
+IdModule  = SIL-8;
+EndCmp
+
+BeginCmp
+TimeStamp = /50F99056;
+Reference = U1;
+ValeurCmp = PCA9698;
+IdModule  = TSSOP-56;
+EndCmp
+
+EndListe

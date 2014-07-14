@@ -1,0 +1,73 @@
+Cmp-Mod V01 Created by CvPcb (2012-01-19 BZR 3256)-stable date = 23/01/2013 19:41:51
+
+BeginCmp
+TimeStamp = /51008FAA;
+Reference = D1;
+ValeurCmp = DIODESCH;
+IdModule  = D3;
+EndCmp
+
+BeginCmp
+TimeStamp = /51008355;
+Reference = GS1;
+ValeurCmp = GS2;
+IdModule  = GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /51008F63;
+Reference = P1;
+ValeurCmp = CONN_5;
+IdModule  = SIL-5;
+EndCmp
+
+BeginCmp
+TimeStamp = /5100867F;
+Reference = P2;
+ValeurCmp = JTAGSEL;
+IdModule  = SIL-2;
+EndCmp
+
+BeginCmp
+TimeStamp = /51008096;
+Reference = P3;
+ValeurCmp = JTAG_CONNECTOR;
+IdModule  = pin_strip_10x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /51007D72;
+Reference = P4;
+ValeurCmp = CONN_10;
+IdModule  = SIL-10;
+EndCmp
+
+BeginCmp
+TimeStamp = /510081F7;
+Reference = R1;
+ValeurCmp = 100K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /510081F8;
+Reference = R2;
+ValeurCmp = 100K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /510081C8;
+Reference = R3;
+ValeurCmp = 100K;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /510081AB;
+Reference = R4;
+ValeurCmp = 100K;
+IdModule  = R3;
+EndCmp
+
+EndListe

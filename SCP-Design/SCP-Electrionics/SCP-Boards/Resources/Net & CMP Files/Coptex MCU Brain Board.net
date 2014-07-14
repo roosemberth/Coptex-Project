@@ -1,0 +1,927 @@
+# EESchema Netlist Version 1.1 created  sam. 01 juin 2013 20:18:05 CST
+(
+ ( /51AAA9D4 $noname  D5 DIODE {Lib=DIODE}
+  (    1 Power_In_2 )
+  (    2 VIN_2.5A )
+ )
+ ( /51AAA9CF $noname  D4 DIODE {Lib=DIODE}
+  (    1 Power_In_1 )
+  (    2 VIN_2.5A )
+ )
+ ( /51AAA9A4 $noname  D3 DIODE {Lib=DIODE}
+  (    1 GND_HIGH )
+  (    2 Power_In_2 )
+ )
+ ( /51AAA99B $noname  D2 DIODE {Lib=DIODE}
+  (    1 GND_HIGH )
+  (    2 Power_In_1 )
+ )
+ ( /50B3D766 $noname  J7 SIL8 {Lib=CONN_8}
+  (    1 VIN_2.5A )
+  (    2 N-000002 )
+  (    3 N-000005 )
+  (    4 N-000009 )
+  (    5 N-000007 )
+  (    6 N-000010 )
+  (    7 N-000098 )
+  (    8 N-000008 )
+ )
+ ( /50B3D6CE $noname  J8 SIL8 {Lib=CONN_8}
+  (    1 N-000096 )
+  (    2 /AD4 )
+  (    3 /AD5 )
+  (    4 /AD6 )
+  (    5 /AD7 )
+  (    6 3.3V_HIGH )
+  (    7 +5V_HIGH )
+  (    8 GND_HIGH )
+ )
+ ( /50A85811 $noname  R3 10K {Lib=R}
+  (    1 N-000084 )
+  (    2 GND_LOW )
+ )
+ ( /50A84EEA $noname  K2 TO_3V_SW {Lib=CONN_3}
+  (    1 +5V_HIGH )
+  (    2 +5V )
+  (    3 VIN_2.5A )
+ )
+ ( /12D50247 $noname  C5 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 3.3V_LOW )
+ )
+ ( /508DE794 $noname  U3 LM1117_3.3v_1A {Lib=VOLTAGE_REGULATOR}
+  (    1 GND_HIGH )
+  (    2 3.3V_HIGH )
+  (    3 +5V )
+  (    4 3.3V_HIGH )
+ )
+ ( /50A0E992 $noname  F1 1A {Lib=FUSE}
+  (    1 5V_USB_FIL_H )
+  (    2 5V_USB_IN_H )
+ )
+ ( /5014A1EF TQFP100  IC1 AT91SAM7X512-AU {Lib=AT91SAM7X512-AU}
+  (    1 3.3V_LOW )
+  (    2 GND_LOW )
+  (    3 /AD4 )
+  (    4 /AD5 )
+  (    5 /AD6 )
+  (    6 /AD7 )
+  (    7 1.85V_LOW )
+  (    8 3.3V_LOW )
+  (    9 N-000027 )
+  (   10 N-000020 )
+  (   11 N-000028 )
+  (   12 N-000003 )
+  (   13 N-000069 )
+  (   14 N-000061 )
+  (   15 1.85V_LOW )
+  (   16 GND_LOW )
+  (   17 3.3V_LOW )
+  (   18 N-000068 )
+  (   19 N-000038 )
+  (   20 N-000037 )
+  (   21 N-000036 )
+  (   22 N-000035 )
+  (   23 N-000034 )
+  (   24 N-000033 )
+  (   25 N-000032 )
+  (   26 N-000031 )
+  (   27 N-000059 )
+  (   28 N-000058 )
+  (   29 N-000044 )
+  (   30 N-000043 )
+  (   31 N-000056 )
+  (   32 GND_LOW )
+  (   33 3.3V_LOW )
+  (   34 N-000055 )
+  (   35 N-000045 )
+  (   36 N-000047 )
+  (   37 1.85V_LOW )
+  (   38 N-000057 )
+  (   39 N-000079 )
+  (   40 N-000008 )
+  (   41 N-000042 )
+  (   42 N-000052 )
+  (   43 N-000053 )
+  (   44 N-000060 )
+  (   45 N-000051 )
+  (   46 N-000023 )
+  (   47 N-000029 )
+  (   48 3.3V_LOW )
+  (   49 N-000080 )
+  (   50 N-000067 )
+  (   51 N-000002 )
+  (   52 GND_LOW )
+  (   53 N-000046 )
+  (   54 N-000054 )
+  (   55 N-000066 )
+  (   56 N-000065 )
+  (   57 N-000098 )
+  (   58 GND_LOW )
+  (   59 N-000081 )
+  (   60 N-000064 )
+  (   61 3.3V_LOW )
+  (   62 1.85V_LOW )
+  (   63 N-000048 )
+  (   64 N-000049 )
+  (   65 N-000050 )
+  (   66 N-000041 )
+  (   67 N-000030 )
+  (   68 GND_LOW )
+  (   69 N-000082 )
+  (   70 N-000024 )
+  (   71 N-000025 )
+  (   72 N-000026 )
+  (   73 N-000063 )
+  (   74 N-000062 )
+  (   75 N-000040 )
+  (   76 N-000007 )
+  (   77 N-000010 )
+  (   78 N-000005 )
+  (   79 N-000009 )
+  (   80 N-000039 )
+  (   81 N-000096 )
+  (   82 N-000075 )
+  (   83 GND_LOW )
+  (   84 3.3V_LOW )
+  (   85 N-000073 )
+  (   86 N-000074 )
+  (   87 1.85V_LOW )
+  (   88 N-000072 )
+  (   89 N-000083 )
+  (   90 N-000071 )
+  (   91 N-000070 )
+  (   92 N-000084 )
+  (   93 N-000087 )
+  (   94 N-000095 )
+  (   95 3.3V_LOW )
+  (   96 GND_LOW )
+  (   97 N-000004 )
+  (   98 N-000006 )
+  (   99 N-000085 )
+  (  100 1.85V_LOW )
+ )
+ ( /50A0E5D0 $noname  BY2 BY_PASS {Lib=R}
+  (    1 3.3V_HIGH )
+  (    2 3.3V_LOW )
+ )
+ ( /50A0E4CF $noname  BY1 BY_PASS {Lib=R}
+  (    1 GND_HIGH )
+  (    2 GND_LOW )
+ )
+ ( /508E07B3 $noname  SW1 Erase {Lib=SW_PUSH_SMALL}
+  (    1 N-000084 )
+  (    2 3.3V_LOW )
+ )
+ ( /508DFB32 $noname  C18 1Nf {Lib=C}
+  (    1 N-000085 )
+  (    2 GND_LOW )
+ )
+ ( /508DFB2D $noname  C19 10Nf {Lib=C}
+  (    1 N-000076 )
+  (    2 GND_LOW )
+ )
+ ( /508DFB02 $noname  R4 1.5K {Lib=R}
+  (    1 N-000076 )
+  (    2 N-000085 )
+ )
+ ( /508DF97A $noname  D1 Power_Led {Lib=LED}
+  (    1 +5V_HIGH )
+  (    2 N-000077 )
+ )
+ ( /508DF970 $noname  R1 10K {Lib=R}
+  (    1 GND_LOW )
+  (    2 N-000077 )
+ )
+ ( /508DF537 $noname  P7 Power_In {Lib=CONN_2}
+  (    1 Power_In_1 )
+  (    2 Power_In_2 )
+ )
+ ( /508DF314 $noname  K1 5V_PW_SW {Lib=CONN_3}
+  (    1 5V_USB_FIL_H )
+  (    2 +5V_HIGH )
+  (    3 5V_REG_H )
+ )
+ ( /508DF0EF $noname  C12 1Uf_6.3v {Lib=C}
+  (    1 5V_REG_H )
+  (    2 GND_HIGH )
+ )
+ ( /508DF0EE $noname  C11 1uF {Lib=CAPAPOL}
+  (    1 5V_REG_H )
+  (    2 GND_HIGH )
+ )
+ ( /508DF0ED $noname  C10 1Uf_50v {Lib=C}
+  (    1 VIN_2.5A )
+  (    2 GND_HIGH )
+ )
+ ( /508DF057 $noname  C13 1Uf_50v {Lib=C}
+  (    1 +5V )
+  (    2 GND_HIGH )
+ )
+ ( /508DF04E $noname  C14 1Uf {Lib=CAPAPOL}
+  (    1 3.3V_HIGH )
+  (    2 GND_HIGH )
+ )
+ ( /508DF004 $noname  C15 1Uf_6.3v {Lib=C}
+  (    1 3.3V_HIGH )
+  (    2 GND_HIGH )
+ )
+ ( /508DE791 $noname  U1 LM1117_5.0v_1A {Lib=VOLTAGE_REGULATOR}
+  (    1 GND_HIGH )
+  (    2 5V_REG_H )
+  (    3 VIN_2.5A )
+  (    4 5V_REG_H )
+ )
+ ( /508DE6B8 $noname  P1 USB_Port {Lib=CONN_4}
+  (    1 5V_USB_IN_H )
+  (    2 N-000088 )
+  (    3 N-000089 )
+  (    4 GND_LOW )
+ )
+ ( /508DDF7D $noname  R2 10K {Lib=R}
+  (    1 N-000098 )
+  (    2 3.3V_LOW )
+ )
+ ( /508DDD7E $noname  SW2 Manual_Reset {Lib=SW_PUSH_SMALL}
+  (    1 GND_LOW )
+  (    2 N-000098 )
+ )
+ ( /508DC828 $noname  U2 USBUF01W6 {Lib=USBUF01W6}
+  (    1 N-000095 )
+  (    2 GND_LOW )
+  (    3 N-000087 )
+  (    4 N-000088 )
+  (    5 3.3V_LOW )
+  (    6 N-000089 )
+ )
+ ( /5081E807 $noname  P6 CONN_1 {Lib=CONN_1}
+  (    1 ? )
+ )
+ ( /5081E806 $noname  P8 CONN_1 {Lib=CONN_1}
+  (    1 ? )
+ )
+ ( /5062358A $noname  P9 Power_Port {Lib=CONN_2X2}
+  (    1 1.85V_LOW )
+  (    2 3.3V_LOW )
+  (    3 GND_LOW )
+  (    4 GND_LOW )
+ )
+ ( /50623581 $noname  P5 CONN_1 {Lib=CONN_1}
+  (    1 ? )
+ )
+ ( /5062357A $noname  P11 CONN_1 {Lib=CONN_1}
+  (    1 ? )
+ )
+ ( /12D50291 $noname  C1 100Nf {Lib=C}
+  (    1 3.3V_LOW )
+  (    2 GND_LOW )
+ )
+ ( /12D50246 $noname  C4 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 3.3V_LOW )
+ )
+ ( /12D50245 $noname  C2 100Nf {Lib=C}
+  (    1 3.3V_LOW )
+  (    2 GND_LOW )
+ )
+ ( /12D50244 $noname  C3 100Nf {Lib=C}
+  (    1 3.3V_LOW )
+  (    2 GND_LOW )
+ )
+ ( /12D50233 $noname  C7 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 1.85V_LOW )
+ )
+ ( /12D50232 $noname  C6 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 1.85V_LOW )
+ )
+ ( /12D5016D $noname  C8 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 1.85V_LOW )
+ )
+ ( /12D5012C $noname  C9 100Nf {Lib=C}
+  (    1 GND_LOW )
+  (    2 1.85V_LOW )
+ )
+ ( /5014A206 $noname  C17 10pF {Lib=C}
+  (    1 N-000004 )
+  (    2 GND_LOW )
+ )
+ ( /5014A205 $noname  C16 10pF {Lib=C}
+  (    1 N-000006 )
+  (    2 GND_LOW )
+ )
+ ( /5014A204 $noname  XTAL1 18.432_MHZ {Lib=CRYSTAL}
+  (    1 N-000004 )
+  (    2 N-000006 )
+ )
+ ( /5014A1F8 $noname  J4 SIL10 {Lib=SIL10}
+  (    1 N-000041 )
+  (    2 N-000030 )
+  (    3 N-000082 )
+  (    4 N-000024 )
+  (    5 N-000025 )
+  (    6 N-000026 )
+  (    7 N-000027 )
+  (    8 N-000020 )
+  (    9 N-000028 )
+  (   10 N-000003 )
+ )
+ ( /5014A1F6 $noname  J2 SIL10 {Lib=SIL10}
+  (    1 N-000029 )
+  (    2 N-000023 )
+  (    3 N-000031 )
+  (    4 N-000032 )
+  (    5 N-000033 )
+  (    6 N-000034 )
+  (    7 N-000035 )
+  (    8 N-000036 )
+  (    9 N-000037 )
+  (   10 N-000038 )
+ )
+ ( /5014A1F4 $noname  J3 SIL10 {Lib=SIL10}
+  (    1 N-000039 )
+  (    2 N-000040 )
+  (    3 N-000062 )
+  (    4 N-000063 )
+  (    5 N-000064 )
+  (    6 N-000081 )
+  (    7 N-000065 )
+  (    8 N-000066 )
+  (    9 N-000067 )
+  (   10 N-000080 )
+ )
+ ( /5014A1F3 $noname  J1 SIL10 {Lib=SIL10}
+  (    1 N-000068 )
+  (    2 N-000061 )
+  (    3 N-000069 )
+  (    4 N-000070 )
+  (    5 N-000071 )
+  (    6 N-000083 )
+  (    7 N-000072 )
+  (    8 N-000073 )
+  (    9 N-000074 )
+  (   10 N-000075 )
+ )
+ ( /5014A1F2 $noname  J5 SIL10 {Lib=SIL10}
+  (    1 N-000051 )
+  (    2 N-000079 )
+  (    3 N-000043 )
+  (    4 N-000044 )
+  (    5 N-000045 )
+  (    6 N-000046 )
+  (    7 N-000047 )
+  (    8 N-000048 )
+  (    9 N-000049 )
+  (   10 N-000050 )
+ )
+ ( /5014A1F1 $noname  J6 SIL10 {Lib=SIL10}
+  (    1 N-000042 )
+  (    2 N-000052 )
+  (    3 N-000053 )
+  (    4 N-000054 )
+  (    5 N-000055 )
+  (    6 N-000056 )
+  (    7 N-000057 )
+  (    8 N-000058 )
+  (    9 N-000059 )
+  (   10 N-000060 )
+ )
+)
+*
+{ Allowed footprints by component:
+$component D5
+ D?
+ S*
+$endlist
+$component D4
+ D?
+ S*
+$endlist
+$component D3
+ D?
+ S*
+$endlist
+$component D2
+ D?
+ S*
+$endlist
+$component R3
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component C5
+ SM*
+ C?
+ C1-1
+$endlist
+$component BY2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component BY1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component C18
+ SM*
+ C?
+ C1-1
+$endlist
+$component C19
+ SM*
+ C?
+ C1-1
+$endlist
+$component R4
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component D1
+ LED-3MM
+ LED-5MM
+ LED-10MM
+ LED-0603
+ LED-0805
+ LED-1206
+ LEDV
+$endlist
+$component R1
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component C12
+ SM*
+ C?
+ C1-1
+$endlist
+$component C11
+ CP*
+ SM*
+$endlist
+$component C10
+ SM*
+ C?
+ C1-1
+$endlist
+$component C13
+ SM*
+ C?
+ C1-1
+$endlist
+$component C14
+ CP*
+ SM*
+$endlist
+$component C15
+ SM*
+ C?
+ C1-1
+$endlist
+$component R2
+ R?
+ SM0603
+ SM0805
+ R?-*
+ SM1206
+$endlist
+$component C1
+ SM*
+ C?
+ C1-1
+$endlist
+$component C4
+ SM*
+ C?
+ C1-1
+$endlist
+$component C2
+ SM*
+ C?
+ C1-1
+$endlist
+$component C3
+ SM*
+ C?
+ C1-1
+$endlist
+$component C7
+ SM*
+ C?
+ C1-1
+$endlist
+$component C6
+ SM*
+ C?
+ C1-1
+$endlist
+$component C8
+ SM*
+ C?
+ C1-1
+$endlist
+$component C9
+ SM*
+ C?
+ C1-1
+$endlist
+$component C17
+ SM*
+ C?
+ C1-1
+$endlist
+$component C16
+ SM*
+ C?
+ C1-1
+$endlist
+$endfootprintlist
+}
+{ Pin List by Nets
+Net 1 "1.85V LOW" "1.85V LOW"
+ IC1 37
+ IC1 7
+ IC1 87
+ P9 1
+ IC1 100
+ C9 2
+ IC1 62
+ C6 2
+ C7 2
+ IC1 15
+ C8 2
+Net 2 "" ""
+ IC1 51
+ J7 2
+Net 3 "" ""
+ J4 10
+ IC1 12
+Net 4 "" ""
+ IC1 97
+ XTAL1 1
+ C17 1
+Net 5 "" ""
+ IC1 78
+ J7 3
+Net 6 "" ""
+ C16 1
+ IC1 98
+ XTAL1 2
+Net 7 "" ""
+ IC1 76
+ J7 5
+Net 8 "" ""
+ IC1 40
+ J7 8
+Net 9 "" ""
+ J7 4
+ IC1 79
+Net 10 "" ""
+ IC1 77
+ J7 6
+Net 11 "/AD4" "AD4"
+ J8 2
+ IC1 3
+Net 12 "/AD5" "AD5"
+ J8 3
+ IC1 4
+Net 13 "/AD6" "AD6"
+ IC1 5
+ J8 4
+Net 14 "/AD7" "AD7"
+ J8 5
+ IC1 6
+Net 15 "+5V HIGH" "+5V HIGH"
+ K2 1
+ D1 1
+ J8 7
+ K1 2
+Net 16 "Power In 1" "Power In 1"
+ D2 2
+ P7 1
+ D4 1
+Net 17 "GND HIGH" "GND HIGH"
+ C12 2
+ C13 2
+ C14 2
+ C11 2
+ C15 2
+ U1 1
+ J8 8
+ U3 1
+ BY1 1
+ C10 2
+ D3 1
+ D2 1
+Net 18 "VIN 2.5A" "VIN 2.5A"
+ D4 2
+ J7 1
+ D5 2
+ C10 1
+ K2 3
+ U1 3
+Net 19 "5V USB IN H" "5V USB IN H"
+ F1 2
+ P1 1
+Net 20 "" ""
+ J4 8
+ IC1 10
+Net 21 "+5V" "+5V"
+ K2 2
+ U3 3
+ C13 1
+Net 22 "3.3V LOW" "3.3V LOW"
+ P9 2
+ C1 1
+ C4 2
+ U2 5
+ SW1 2
+ BY2 2
+ IC1 1
+ IC1 8
+ IC1 95
+ IC1 33
+ C5 2
+ IC1 61
+ IC1 48
+ IC1 84
+ R2 2
+ C2 1
+ C3 1
+ IC1 17
+Net 23 "" ""
+ IC1 46
+ J2 2
+Net 24 "" ""
+ J4 4
+ IC1 70
+Net 25 "" ""
+ J4 5
+ IC1 71
+Net 26 "" ""
+ IC1 72
+ J4 6
+Net 27 "" ""
+ J4 7
+ IC1 9
+Net 28 "" ""
+ IC1 11
+ J4 9
+Net 29 "" ""
+ J2 1
+ IC1 47
+Net 30 "" ""
+ J4 2
+ IC1 67
+Net 31 "" ""
+ J2 3
+ IC1 26
+Net 32 "" ""
+ IC1 25
+ J2 4
+Net 33 "" ""
+ J2 5
+ IC1 24
+Net 34 "" ""
+ IC1 23
+ J2 6
+Net 35 "" ""
+ IC1 22
+ J2 7
+Net 36 "" ""
+ J2 8
+ IC1 21
+Net 37 "" ""
+ IC1 20
+ J2 9
+Net 38 "" ""
+ IC1 19
+ J2 10
+Net 39 "" ""
+ IC1 80
+ J3 1
+Net 40 "" ""
+ IC1 75
+ J3 2
+Net 41 "" ""
+ IC1 66
+ J4 1
+Net 42 "" ""
+ IC1 41
+ J6 1
+Net 43 "" ""
+ IC1 30
+ J5 3
+Net 44 "" ""
+ IC1 29
+ J5 4
+Net 45 "" ""
+ IC1 35
+ J5 5
+Net 46 "" ""
+ IC1 53
+ J5 6
+Net 47 "" ""
+ J5 7
+ IC1 36
+Net 48 "" ""
+ IC1 63
+ J5 8
+Net 49 "" ""
+ IC1 64
+ J5 9
+Net 50 "" ""
+ J5 10
+ IC1 65
+Net 51 "" ""
+ IC1 45
+ J5 1
+Net 52 "" ""
+ IC1 42
+ J6 2
+Net 53 "" ""
+ IC1 43
+ J6 3
+Net 54 "" ""
+ IC1 54
+ J6 4
+Net 55 "" ""
+ IC1 34
+ J6 5
+Net 56 "" ""
+ J6 6
+ IC1 31
+Net 57 "" ""
+ J6 7
+ IC1 38
+Net 58 "" ""
+ J6 8
+ IC1 28
+Net 59 "" ""
+ J6 9
+ IC1 27
+Net 60 "" ""
+ J6 10
+ IC1 44
+Net 61 "" ""
+ J1 2
+ IC1 14
+Net 62 "" ""
+ J3 3
+ IC1 74
+Net 63 "" ""
+ IC1 73
+ J3 4
+Net 64 "" ""
+ IC1 60
+ J3 5
+Net 65 "" ""
+ J3 7
+ IC1 56
+Net 66 "" ""
+ J3 8
+ IC1 55
+Net 67 "" ""
+ J3 9
+ IC1 50
+Net 68 "" ""
+ IC1 18
+ J1 1
+Net 69 "" ""
+ J1 3
+ IC1 13
+Net 70 "" ""
+ J1 4
+ IC1 91
+Net 71 "" ""
+ J1 5
+ IC1 90
+Net 72 "" ""
+ IC1 88
+ J1 7
+Net 73 "" ""
+ IC1 85
+ J1 8
+Net 74 "" ""
+ IC1 86
+ J1 9
+Net 75 "" ""
+ IC1 82
+ J1 10
+Net 76 "" ""
+ C19 1
+ R4 1
+Net 77 "" ""
+ D1 2
+ R1 2
+Net 78 "5V USB FIL H" "5V USB FIL H"
+ F1 1
+ K1 1
+Net 79 "" ""
+ IC1 39
+ J5 2
+Net 80 "" ""
+ J3 10
+ IC1 49
+Net 81 "" ""
+ IC1 59
+ J3 6
+Net 82 "" ""
+ IC1 69
+ J4 3
+Net 83 "" ""
+ J1 6
+ IC1 89
+Net 84 "" ""
+ IC1 92
+ R3 1
+ SW1 1
+Net 85 "" ""
+ IC1 99
+ C18 1
+ R4 2
+Net 87 "" ""
+ U2 3
+ IC1 93
+Net 88 "" ""
+ P1 2
+ U2 4
+Net 89 "" ""
+ P1 3
+ U2 6
+Net 93 "3.3V HIGH" "3.3V HIGH"
+ C15 1
+ C14 1
+ BY2 1
+ J8 6
+ U3 4
+ U3 2
+Net 94 "5V REG H" "5V REG H"
+ U1 2
+ U1 4
+ C12 1
+ C11 1
+ K1 3
+Net 95 "" ""
+ IC1 94
+ U2 1
+Net 96 "" ""
+ IC1 81
+ J8 1
+Net 97 "Power In 2" "Power In 2"
+ D5 1
+ P7 2
+ D3 2
+Net 98 "" ""
+ SW2 2
+ R2 1
+ J7 7
+ IC1 57
+Net 99 "GND LOW" "GND LOW"
+ U2 2
+ IC1 83
+ BY1 2
+ IC1 32
+ IC1 52
+ IC1 96
+ IC1 58
+ IC1 68
+ IC1 16
+ SW2 1
+ P1 4
+ C18 2
+ R1 1
+ C1 2
+ C4 1
+ C19 2
+ IC1 2
+ R3 2
+ C5 1
+ P9 3
+ C2 2
+ C3 2
+ C7 1
+ P9 4
+ C6 1
+ C8 1
+ C9 1
+ C17 2
+ C16 2
+}
+#End

@@ -1,0 +1,191 @@
+(pcb "/home/roosemberth/Bureau/Helicopter-Project/Resources/Dsn Files/Oscillator.dsn"
+  (parser
+    (string_quote ")
+    (space_in_quoted_tokens on)
+    (host_cad "KiCad's Pcbnew")
+    (host_version "(2012-apr-16-27)-stable")
+  )
+  (resolution mil 10)
+  (unit mil)
+  (structure
+    (layer Dessus
+      (type signal)
+      (property
+        (index 0)
+      )
+    )
+    (layer Dessous
+      (type signal)
+      (property
+        (index 1)
+      )
+    )
+    (boundary
+      (path pcb 0  5925 -1975  5925 -1550  5355 -1550  5355 -1970  5355 -1975
+            5255 -1975  5255 -2075  6030 -2075  6030 -1975  5925 -1975)
+    )
+    (via "Via[0-1]_35:25_mil" "Via[0-1]_35:0_mil")
+    (rule
+      (width 8)
+      (clearance 10.1)
+      (clearance 10.1 (type default_smd))
+      (clearance 2.5 (type smd_smd))
+    )
+  )
+  (placement
+    (component PIN_ARRAY_2X2
+      (place OSC1 5640 -1880 front 0 (PN OSCILATOR))
+    )
+    (component R3
+      (place R1 5455 -2025 front 0 (PN Rf))
+      (place R2 5830 -2025 front 180 (PN Rs))
+    )
+    (component "HC-49V"
+      (place X1 5645 -1665 front 180 (PN CRYSTAL))
+    )
+    (component C1
+      (place C1 5410 -1880 front 90 (PN 32pF))
+      (place C2 5870 -1880 front 270 (PN 32pF))
+    )
+    (component "SOTT323-6L"
+      (place "CLK-OSC1" 5602 -1850 front 0 (PN SN74LVC1GX04))
+    )
+    (component "R-PDSO-N6"
+      (place "Sot-6" 5689 -1928 front 0 (PN TI))
+    )
+  )
+  (library
+    (image PIN_ARRAY_2X2
+      (outline (path signal 12  -100 100  100 100))
+      (outline (path signal 12  100 100  100 -100))
+      (outline (path signal 12  100 -100  -100 -100))
+      (outline (path signal 12  -100 -100  -100 100))
+      (pin Rect[A]Pad_60x60_mil 1 -150 50)
+      (pin Round[A]Pad_60_mil 2 150 -50)
+      (pin Round[A]Pad_60_mil 3 150 50)
+      (pin Round[A]Pad_60_mil 4 -150 -50)
+    )
+    (image R3
+      (outline (path signal 8  -150 0  -130 0))
+      (outline (path signal 8  150 0  130 0))
+      (outline (path signal 8  130 0  130 40))
+      (outline (path signal 8  130 40  -130 40))
+      (outline (path signal 8  -130 40  -130 -40))
+      (outline (path signal 8  -130 -40  130 -40))
+      (outline (path signal 8  130 -40  130 0))
+      (outline (path signal 8  -130 20  -110 40))
+      (pin Round[A]Pad_55_mil 1 -150 0)
+      (pin Round[A]Pad_55_mil 2 150 0)
+    )
+    (image "HC-49V"
+      (outline (path signal 12.5  -125 -100  125 -100))
+      (outline (path signal 12.5  -125 100  125 100))
+      (pin Round[A]Pad_56_mil 1 -100 0)
+      (pin Round[A]Pad_56_mil 2 100 0)
+    )
+    (image C1
+      (outline (path signal 12  -98 50  100 50))
+      (outline (path signal 12  100 50  100 -50))
+      (outline (path signal 12  100 -50  -100 -50))
+      (outline (path signal 12  -100 -50  -100 50))
+      (outline (path signal 12  -100 25  -75 50))
+      (pin Round[A]Pad_55_mil 1 -50 0)
+      (pin Round[A]Pad_55_mil 2 50 0)
+    )
+    (image "SOTT323-6L"
+      (outline (path signal 15  -49.2 -9.8  -29.5 -29.5))
+      (outline (path signal 15  49.2 29.5  49.2 -29.5))
+      (outline (path signal 15  49.2 29.5  -49.2 29.5))
+      (outline (path signal 15  -49.2 29.5  -49.2 -29.5))
+      (outline (path signal 15  -49.2 -29.5  49.2 -29.5))
+      (pin Rect[T]Pad_15.7x41.3_mil 6 -25.6 31.5)
+      (pin Rect[T]Pad_15.7x41.3_mil 5 0 31.5)
+      (pin Rect[T]Pad_15.7x41.3_mil 4 25.6 31.5)
+      (pin Rect[T]Pad_15.7x41.3_mil 3 25.6 -31.5)
+      (pin Rect[T]Pad_15.7x41.3_mil 2 0 -31.5)
+      (pin Rect[T]Pad_15.7x41.3_mil 1 -25.6 -31.5)
+    )
+    (image "R-PDSO-N6"
+      (outline (path signal 15  -33.5 23.6  -33.5 -23.6))
+      (outline (path signal 15  -33.5 -23.6  33.5 -23.6))
+      (outline (path signal 15  33.5 -23.6  33.5 23.6))
+      (outline (path signal 15  33.5 23.6  -33.5 23.6))
+      (pin Rect[T]Pad_7.1x15.7_mil 2 0 -23.6)
+      (pin Rect[T]Pad_7.1x15.7_mil 3 19.7 -23.6)
+      (pin Rect[T]Pad_7.1x15.7_mil 4 19.7 23.6)
+      (pin Rect[T]Pad_7.1x15.7_mil 5 0 23.6)
+      (pin Rect[T]Pad_7.1x15.7_mil 6 -19.7 23.6)
+      (pin Rect[T]Pad_7.1x15.7_mil 1 -19.7 -23.6)
+    )
+    (padstack Round[A]Pad_55_mil
+      (shape (circle Dessus 55))
+      (shape (circle Dessous 55))
+      (attach off)
+    )
+    (padstack Round[A]Pad_56_mil
+      (shape (circle Dessus 56))
+      (shape (circle Dessous 56))
+      (attach off)
+    )
+    (padstack Round[A]Pad_60_mil
+      (shape (circle Dessus 60))
+      (shape (circle Dessous 60))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_7.1x15.7_mil
+      (shape (rect Dessus -3.55 -7.85 3.55 7.85))
+      (attach off)
+    )
+    (padstack Rect[A]Pad_60x60_mil
+      (shape (rect Dessus -30 -30 30 30))
+      (shape (rect Dessous -30 -30 30 30))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_15.7x41.3_mil
+      (shape (rect Dessus -7.85 -20.65 7.85 20.65))
+      (attach off)
+    )
+    (padstack "Via[0-1]_35:25_mil"
+      (shape (circle Dessus 35))
+      (shape (circle Dessous 35))
+      (attach off)
+    )
+    (padstack "Via[0-1]_35:0_mil"
+      (shape (circle Dessus 35))
+      (shape (circle Dessous 35))
+      (attach off)
+    )
+  )
+  (network
+    (net "N-000003"
+      (pins OSC1-4 "CLK-OSC1"-5 "Sot-6"-5)
+    )
+    (net "N-000004"
+      (pins R1-2 R2-2 "CLK-OSC1"-4 "Sot-6"-4)
+    )
+    (net "N-000006"
+      (pins R1-1 X1-2 C1-1 "CLK-OSC1"-3 "Sot-6"-3)
+    )
+    (net "N-000007"
+      (pins R2-1 X1-1 C2-1)
+    )
+    (net "N-000008"
+      (pins OSC1-3 "CLK-OSC1"-6 "Sot-6"-6)
+    )
+    (net "N-000009"
+      (pins OSC1-2 C1-2 C2-2 "CLK-OSC1"-2 "Sot-6"-2)
+    )
+    (class kicad_default "" "N-000003" "N-000004" "N-000006" "N-000007" "N-000008"
+      "N-000009"
+      (circuit
+        (use_via Via[0-1]_35:25_mil)
+      )
+      (rule
+        (width 8)
+        (clearance 10.1)
+      )
+    )
+  )
+  (wiring
+  )
+)

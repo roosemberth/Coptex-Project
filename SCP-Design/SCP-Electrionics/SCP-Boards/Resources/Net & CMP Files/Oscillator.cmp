@@ -1,0 +1,59 @@
+Cmp-Mod V01 Created by CvPcb (2012-apr-16-27)-stable date = ven. 31 mai 2013 18:44:56 CST
+
+BeginCmp
+TimeStamp = /51A93FE8;
+Reference = C1;
+ValeurCmp = 32pF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A93FD6;
+Reference = C2;
+ValeurCmp = 32pF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A93F95;
+Reference = CLK-OSC1;
+ValeurCmp = SN74LVC1GX04;
+IdModule  = SOTT323-6L;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A9418D;
+Reference = OSC1;
+ValeurCmp = OSCILATOR;
+IdModule  = PIN_ARRAY_2X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A9400D;
+Reference = R1;
+ValeurCmp = Rf;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A94016;
+Reference = R2;
+ValeurCmp = Rs;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A93F9B;
+Reference = Sot-6;
+ValeurCmp = TI;
+IdModule  = R-PDSO-N6;
+EndCmp
+
+BeginCmp
+TimeStamp = /51A93FCC;
+Reference = X1;
+ValeurCmp = CRYSTAL;
+IdModule  = HC-49V;
+EndCmp
+
+EndListe

@@ -1,0 +1,178 @@
+(pcb "/home/roosemberth/Bureau/Helicopter-Project/Resources/Dsn Files/Temperature Sensor.dsn"
+  (parser
+    (string_quote ")
+    (space_in_quoted_tokens on)
+    (host_cad "KiCad's Pcbnew")
+    (host_version "(2012-apr-16-27)-stable")
+  )
+  (resolution mil 10)
+  (unit mil)
+  (structure
+    (layer Dessus
+      (type signal)
+      (property
+        (index 0)
+      )
+    )
+    (layer Dessous
+      (type signal)
+      (property
+        (index 1)
+      )
+    )
+    (boundary
+      (path pcb 0  1420 -585  1420 -850  1820 -850  1820 -585  1420 -585)
+    )
+    (via "Via[0-1]_35:25_mil" "Via[0-1]_35:0_mil")
+    (rule
+      (width 8)
+      (clearance 10.1)
+      (clearance 10.1 (type default_smd))
+      (clearance 2.5 (type smd_smd))
+    )
+  )
+  (placement
+    (component SOT23_6
+      (place TMP1 1620 -750 front 90 (PN TMP100))
+    )
+    (component PIN_ARRAY_4x1
+      (place P1 1620 -635 front 0 (PN CONN_4))
+    )
+    (component GS3
+      (place GS1 1785 -770 front 0 (PN ADD1))
+      (place GS2 1455 -770 front 0 (PN ADD0))
+    )
+  )
+  (library
+    (image SOT23_6
+      (outline (path signal 5  -20 -30  -50 -10))
+      (outline (path signal 5  50 -30  -52.5 -30))
+      (outline (path signal 5  -52.5 -30  -52.5 30))
+      (outline (path signal 5  -52.5 30  50 30))
+      (outline (path signal 5  50 30  50 -30))
+      (pin Rect[T]Pad_27.6x39.4_mil 6 -37.5 50)
+      (pin Rect[T]Pad_27.6x39.4_mil 5 0 50)
+      (pin Rect[T]Pad_27.6x39.4_mil 4 37.5 50)
+      (pin Rect[T]Pad_27.6x39.4_mil 3 37.5 -50)
+      (pin Rect[T]Pad_27.6x39.4_mil 2 0 -50)
+      (pin Rect[T]Pad_27.6x39.4_mil 1 -37.5 -50)
+    )
+    (image PIN_ARRAY_4x1
+      (outline (path signal 10  200 -50  -200 -50))
+      (outline (path signal 10  200 50  -200 50))
+      (outline (path signal 10  -200 50  -200 -50))
+      (outline (path signal 10  200 -50  200 50))
+      (pin Rect[A]Pad_60x60_mil 1 -150 0)
+      (pin Round[A]Pad_60_mil 2 -50 0)
+      (pin Round[A]Pad_60_mil 3 50 0)
+      (pin Round[A]Pad_60_mil 4 150 0)
+    )
+    (image GS3
+      (outline (path signal 5  -35 75  -35 -75))
+      (outline (path signal 5  -35 -75  35 -75))
+      (outline (path signal 5  35 -75  35 75))
+      (outline (path signal 5  -35 75  35 75))
+      (pin Rect[T]Pad_50x38_mil 1 0 50)
+      (pin Rect[T]Pad_50x38_mil 2 0 0)
+      (pin Rect[T]Pad_50x38_mil 3 0 -50)
+    )
+    (padstack Round[A]Pad_60_mil
+      (shape (circle Dessus 60))
+      (shape (circle Dessous 60))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_27.6x39.4_mil
+      (shape (rect Dessus -13.8 -19.7 13.8 19.7))
+      (attach off)
+    )
+    (padstack Rect[T]Pad_50x38_mil
+      (shape (rect Dessus -25 -19 25 19))
+      (attach off)
+    )
+    (padstack Rect[A]Pad_60x60_mil
+      (shape (rect Dessus -30 -30 30 30))
+      (shape (rect Dessous -30 -30 30 30))
+      (attach off)
+    )
+    (padstack "Via[0-1]_35:25_mil"
+      (shape (circle Dessus 35))
+      (shape (circle Dessous 35))
+      (attach off)
+    )
+    (padstack "Via[0-1]_35:0_mil"
+      (shape (circle Dessus 35))
+      (shape (circle Dessous 35))
+      (attach off)
+    )
+  )
+  (network
+    (net "N-000001"
+      (pins TMP1-5 GS2-2)
+    )
+    (net "N-000002"
+      (pins TMP1-3 GS1-2)
+    )
+    (net "N-000003"
+      (pins TMP1-6 P1-3)
+    )
+    (net "N-000004"
+      (pins TMP1-2 P1-2 GS1-3 GS2-3)
+    )
+    (net "N-000005"
+      (pins TMP1-1 P1-4)
+    )
+    (net "N-000006"
+      (pins TMP1-4 P1-1 GS1-1 GS2-1)
+    )
+    (class kicad_default "" "N-000001" "N-000002" "N-000003" "N-000004" "N-000005"
+      "N-000006"
+      (circuit
+        (use_via Via[0-1]_35:25_mil)
+      )
+      (rule
+        (width 8)
+        (clearance 10.1)
+      )
+    )
+  )
+  (wiring
+    (wire (path Dessus 8  1494.3 -770  1514.3 -750)(net "N-000001")(type protect))
+    (wire (path Dessus 8  1455 -770  1494.3 -770)(net "N-000001")(type protect))
+    (wire (path Dessus 8  1514.3 -750  1570 -750)(net "N-000001")(type protect))
+    (wire (path Dessus 8  1745.7 -754.2  1745.7 -770)(net "N-000002")(type protect))
+    (wire (path Dessus 8  1704 -712.5  1745.7 -754.2)(net "N-000002")(type protect))
+    (wire (path Dessus 8  1670 -712.5  1704 -712.5)(net "N-000002")(type protect))
+    (wire (path Dessus 8  1785 -770  1745.7 -770)(net "N-000002")(type protect))
+    (wire (path Dessus 8  1570 -787.5  1536 -787.5  1532.7 -790.8  1522.2 -790.8)(net "N-000003")(type protect))
+    (wire (path Dessous 8  1670 -635  1670 -721.8  1631.5 -760.3  1552.7 -760.3  1522.2 -790.8)(net "N-000003")(type protect))
+    (wire (path Dessus 8  1498.3 -824  1700.2 -824)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1704.2 -820  1745.7 -820)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1700.2 -824  1704.2 -820)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1494.3 -820  1498.3 -824)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1704.2 -750.2  1704 -750)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1704.2 -820  1704.2 -750.2)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1670 -750  1704 -750)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1455 -820  1494.3 -820)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1670 -750  1636 -750  1636 -741.7  1620 -725.7)(net "N-000004")(type protect))
+    (wire (path Dessous 8  1570 -635  1570 -675.7  1620 -725.7)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1785 -820  1745.7 -820)(net "N-000004")(type protect))
+    (wire (path Dessus 8  1631.4 -792.1  1622.4 -792.1)(net "N-000005")(type protect))
+    (wire (path Dessus 8  1636 -787.5  1631.4 -792.1)(net "N-000005")(type protect))
+    (wire (path Dessous 8  1770 -635  1770 -648.4  1626.3 -792.1  1622.4 -792.1)(net "N-000005")(type protect))
+    (wire (path Dessus 8  1670 -787.5  1636 -787.5)(net "N-000005")(type protect))
+    (wire (path Dessus 8  1470 -635  1470 -674.7)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1458 -686.7  1455 -686.7)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1470 -674.7  1458 -686.7)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1455 -720  1455 -703.3  1455 -686.7)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1526.8 -703.3  1536 -712.5)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1455 -703.3  1526.8 -703.3)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1570 -712.5  1536 -712.5)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1782.7 -684.4  1570 -684.4)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1785 -686.7  1782.7 -684.4)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1785 -720  1785 -686.7)(net "N-000006")(type protect))
+    (wire (path Dessus 8  1570 -712.5  1570 -684.4)(net "N-000006")(type protect))
+    (via "Via[0-1]_35:25_mil"  1522.2 -790.8 (net "N-000003")(type protect))
+    (via "Via[0-1]_35:25_mil"  1620 -725.7 (net "N-000004")(type protect))
+    (via "Via[0-1]_35:25_mil"  1622.4 -792.1 (net "N-000005")(type protect))
+  )
+)
