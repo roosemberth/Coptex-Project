@@ -1,0 +1,6 @@
+#.gitignore file: list bellow the files to be ignored by Git
+#.gitignore
+Resources/*
+*~*
+Coptex
+Scorpion-Boards/*.pro
