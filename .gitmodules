@@ -1,0 +1,4 @@
+[submodule "SCP-Platform/SCP-Kernel"]
+	path = SCP-Platform/SCP-Kernel
+	url = git://github.com/hardkernel/linux.git
+	branch = odroid-3.13.y-linaro
