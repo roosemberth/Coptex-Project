@@ -48,3 +48,4 @@ all: Debug Release
 clean:
 	make -C SCP-HwCtrl clean
 	rm -f *.o SCP-Svarog*
+
