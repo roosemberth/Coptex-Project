@@ -1,50 +1,53 @@
 # Compiler
 CC = g++
 
-# Compiler flags:
-#  -Wall turns on most, but not all, compiler warnings
-CFLAGS = -Wall
+# Flags:
+INCLUDES = 
+CFLAGS = -Wextra
+LFLAGS = 
+LIBS = 
 
-# Debugging Compiler Flags
-#  -g	 adds debugging information to the executable file
-DebugCFLAGS = -g
+# Debugging Flags
+D_CFLAGS = -g3 -rdynamic
+D_LFLAGS = 
+D_LIBS = 
 
-#INCLUDES = -I/Path/to/include
-#LFLAGS = -L/Path/to/libs
-#LIBS = -lLIBNAMES
+# Release Flags
+R_CFLAGS = -O3
+R_LFLAGS = 
+R_LIBS = 
 
 # Sources in this directory to Compile
-# SRCS = $(wildcard *.cpp)
-# We just have the Main entry point here, so it's the only source,
-# Everything else will be on it's respective dir
-SRCS = SCP-MainEntryPoint.cpp
+SUBDIRS=$(shell ls -d */ | grep SCP-)
+SRCS = $(wildcard *.cpp)
 OBJS = $(SRCS:.cpp=.o)
 
-SUBDIRS = SCP-ACE SCP-Definitions SCP-HE SCP-HIE SCP-HwCtrl
+.PHONY : default Release Debug all $(SUBDIRS) clean
 
-.PHONY : default Release Debug Subdirs all clean $(SUBDIRS)
-
-default: all
+default: Release
 
 Release: SCP-Svarog
 
 Debug: SCP-Svarog-Dbg
 
-Subdirs: $(SUBDIRS)
+all: Debug Release
 
 $(SUBDIRS):
 	for subdir in $(SUBDIRS); do \
 	  $(MAKE) -C $$subdir $(MAKECMDGOALS); \
 	done
 
-SCP-Svarog: SCP-MainEntryPoint.cpp $(SUBDIRS)
-	$(CC) $(CFLAGS) -o $(Target) $(Target).c
+$(SRCS).o:$(SRCS) $(INCLUDES)
+	$(CC) $(CFLAGS) -c
 
-SCP-Svarog-Dbg: SCP-MainEntryPoint.cpp $(SUBDIRS)
-	$(CC) $(DebugCFLAGS) $(CFLAGS) -o $(Target) $(Target).c
+SCP-Svarog: $(SRCS) $(SUBDIRS)
+	$(CC) $(CFLAGS) $(R_CFLAGS) $(SRCS).o $(LFLAGS) $(R_LFLAGS) $(LIBS) $(R_LIBS) -o SCP-Svarog-Dbg
 
-all: Debug Release
+SCP-Svarog-Dbg: $(SRCS) $(SUBDIRS)
+	$(CC) $(CFLAGS) $(D_CFLAGS) $(SRCS).o $(LFLAGS) $(D_LFLAGS) $(LIBS) $(D_LIBS) -o SCP-Svarog-Dbg
 
 clean:
-	make -C SCP-HwCtrl clean
+	for subdir in $(SUBDIRS); do \
+	  $(MAKE) -C $$subdir clean; \
+	done
 	rm -f *.o SCP-Svarog*
