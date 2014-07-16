@@ -51,4 +51,3 @@ clean:
 	  $(MAKE) -C $$subdir clean; \
 	done
 	rm -f *.o SCP-Svarog*
-
