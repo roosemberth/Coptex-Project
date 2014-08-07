@@ -40,10 +40,10 @@ $(SUBDIRS):
 $(SRCS).o:$(SRCS) $(INCLUDES)
 	$(CC) $(CFLAGS) -c
 
-SCP-Svarog: $(SRCS) $(SUBDIRS)
-	$(CC) $(CFLAGS) $(R_CFLAGS) $(SRCS).o $(LFLAGS) $(R_LFLAGS) $(LIBS) $(R_LIBS) -o SCP-Svarog-Dbg
+SCP-Svarog: $(SUBDIRS) $(SRCS)
+	$(CC) $(CFLAGS) $(R_CFLAGS) $(SRCS).o $(LFLAGS) $(R_LFLAGS) $(LIBS) $(R_LIBS) -o SCP-Svarog
 
-SCP-Svarog-Dbg: $(SRCS) $(SUBDIRS)
+SCP-Svarog-Dbg: $(SUBDIRS) $(SRCS)
 	$(CC) $(CFLAGS) $(D_CFLAGS) $(SRCS).o $(LFLAGS) $(D_LFLAGS) $(LIBS) $(D_LIBS) -o SCP-Svarog-Dbg
 
 clean:
