@@ -20,10 +20,11 @@
 #ifndef SCP_HwCtrl__10_DOF__Gyroscope_h
 #define SCP_HwCtrl__10_DOF__Gyroscope_h
 
-#include <boost/numeric/ublas/vector.hpp>
 #include "../../SCP-Include/SCP-Config.h"
 #include "../HwPlatforms/I2C-Bus.h"
+#include <eigen3/Eigen/Dense>
 #include "IMU.h"
+#include <math.h>
 
 // ************************************************************************
 // 		Software API Definition for L3G4200D MEMS Angular Rate Sensor
@@ -57,6 +58,9 @@
 #define L3G4200D_CtrlReg4_BLE		1<<6
 #define L3G4200D_CtrlReg4_FS1		1<<5
 #define L3G4200D_CtrlReg4_FS0		1<<4
+	#define L3G4200D_Sensitivity_S_250dps 	0
+	#define L3G4200D_Sensitivity_S_500dps 	1<<4
+	#define L3G4200D_Sensitivity_S_2000dps	1<<5
 #define L3G4200D_CtrlReg4_ST1		1<<2
 #define L3G4200D_CtrlReg4_ST0		1<<1
 #define L3G4200D_CtrlReg4_SIM		1<<0
@@ -154,6 +158,19 @@ class IMU::Gyroscope{
 				u8 Int1TshZH;
 				u8 Int1TshZL;
 				u8 Int1Duration;
+				class C_Sensitivity{
+					public:
+						double S_250dps;
+						double S_500dps;
+						double S_2000dps;
+						double Current;
+						C_Sensitivity(){
+							S_250dps = 0.00875 * M_PI;
+							S_500dps = 0.0175 * M_PI;
+							S_2000dps = 0.07 * M_PI;
+							Current = S_250dps;
+						}
+				} Sensitivity;
 				C_L3G4200D(){
 					Who_Am_I = 0x0F;
 					CtrlReg1 = 0x20;
@@ -184,16 +201,18 @@ class IMU::Gyroscope{
 				}
 		} L3G4200D;
 		Gyroscope(I2C_Bus &I2C_Interface);
-		bool config(void ConfigPacket);
-		LinAlg::vector<short> *AngularRate();
-		int *SysTemperature();
 		bool UpdateData();
 		char *SysStatus();
+		char *SysTemperatureDelta();
+		LinAlg::Vector3d *AngularRateP();
+		bool config(void *ConfigPacket);
 	private:
+		u8 GPB1;																// General-Purpose Buffer 1
+		u8 GPB2;																// General-Purpose Buffer 2
 		u8 GyroI2CAddress;
 		I2C_Bus *IMU_Bus;
-		int Temperature;
-		LinAlg::vector<double> AngularRate;
+		char TemperatureDelta;
+		LinAlg::Vector3d<double> AngularRate;
 		char Status;
 };
 

@@ -9,7 +9,7 @@
  *
  */
 
-#include <boost/numeric/ublas/vector.hpp>
+#include <eigen3/Eigen/Dense>
 
 typedef unsigned short u16;
 typedef unsigned int u32;
@@ -21,4 +21,6 @@ typedef unsigned char u8;
 #define SCP_Magnetometer_I2CAddr	0x1E
 #define SCP_Barometer_I2CAddr		0x77
 
-namespace LinAlg = boost::numeric::ublas;
+namespace LinAlg = Eigen;
+
+
