@@ -217,5 +217,4 @@ class IMU::Gyroscope{
 };
 
 
-
 #endif //#ifndef SCP_HwCtrl__10_DOF__Gyroscope_h

@@ -67,7 +67,6 @@ IMU::Gyroscope::Gyroscope(I2C_Bus &I2C_Interface){
 	GPB1 = 0;
 	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg5, &GPB1, 1);
 
-	//TODO: Implement System Initialization
 	UpdateData();
 }
 

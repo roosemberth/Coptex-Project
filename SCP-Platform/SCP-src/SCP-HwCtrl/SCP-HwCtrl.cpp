@@ -24,6 +24,6 @@ unsigned short C_MaestroUpdateQueue::QueryPositionUpdate(char Channel){
 	return (this->UpdateQueue.UpdatePending & 1<<Channel)?this->UpdateQueue.Position[Channel-1]:0;
 }
 int C_MaestroUpdateQueue::FlushPendingUpdates(){
-	//TODO: Waiting Maestro Comunication Platform
+	//TODO:[Important][Deps] Waiting Maestro Comunication Platform
 	return 0;
 }

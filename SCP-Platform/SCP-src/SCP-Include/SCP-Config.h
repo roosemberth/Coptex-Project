@@ -10,6 +10,7 @@
  */
 
 #include <eigen3/Eigen/Dense>
+#include <math.h>
 
 typedef unsigned short u16;
 typedef unsigned int u32;
@@ -20,6 +21,15 @@ typedef unsigned char u8;
 #define SCP_Accelerometer_I2CAddr	0x53
 #define SCP_Magnetometer_I2CAddr	0x1E
 #define SCP_Barometer_I2CAddr		0x77
+
+double SCP_MeanSV_Gravity = 9.79688644;
+double SCP_MeanCH_Gravity = 9.78106106;
+double SCP_Current_Gravity = SCP_MeanSV_Gravity; //9.80665;
+
+void CalculateGravity(double Latitude, double MSL){
+	SCP_Current_Gravity = 9.780327*(1 + (0.0053024*pow(sin(Latitude), 2)) - 0.0000058*pow(sin(2*Latitude),2)) - 3.086*pow(10, -6)*MSL;
+	// According to: http://www.npl.co.uk/reference/faqs/how-can-i-determine-my-local-values-of-gravitational-acceleration-and-altitude-(faq-pressure)
+}
 
 namespace LinAlg = Eigen;
 

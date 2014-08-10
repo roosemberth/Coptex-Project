@@ -34,7 +34,7 @@
 
 /* Software Definitions */
 
-/* TODO: Faire attention sur cette constante!
+/* TODO:[Relevant] Faire attention sur cette constante!
  * Update: In theory we're working with dynamic minors, so in order to determine the right minor we should test
  * Matthias Valletin himself recommended to guess in a sort of test/fail procedure
  */
@@ -179,7 +179,7 @@ int raw_buffer_to_words(u8 *RecievedBuffer, int count, u8 **Strings){
 		} else {										// On a trouvé un espace mais pas à la fin
 			DEBUG_INFO("Found Word from Position %d to %d of RecievedBuffer, Pushing to Strings[%d]", WordOffset, BuffIndex, NumDesMots);
 			if (WordCharCounter==0) DEBUG_WARN("Found WhiteSpace on first Character!");
-//			Strings[NumDesMots]=kmalloc(WordCharCounter*sizeof(char *), GFP_KERNEL); FIXME: Oddities
+//			Strings[NumDesMots]=kmalloc(WordCharCounter*sizeof(char *), GFP_KERNEL); TODO: [Optional] Oddities
 			Strings[NumDesMots]=kmalloc((WordCharCounter==0?1:WordCharCounter)*sizeof(char *), GFP_KERNEL);
 			WordOffset = BuffIndex-WordCharCounter;
 			for (i=0; WordOffset<BuffIndex; ++WordOffset){
@@ -239,7 +239,7 @@ int MaestroWriteHandler(struct usb_Maestro *dev, u8 *RecievedBuffer, int count){
 	ControlPacket->Lenght=0;
 	switch (Arguments[0]){
 	case REQUEST_COMPLEX:
-		// TODO: Implement Complex Functions
+		// TODO:[Important] Implement Complex Functions
 		// Set 	ControlPacket->RequestType
 		DEBUG_INFO("Hey There!");
 		return count;
@@ -452,7 +452,7 @@ static ssize_t Maestro_Write(struct file *file, const char __user *user_buf, siz
 		return -EFAULT;
 	}
 
-	/* FIXME: Now RecievedBuffer hold the bytes written to the dev file and we need to fill ControlPacket Structure */
+	/* TODO:[Relevant] Now RecievedBuffer hold the bytes written to the dev file and we need to fill ControlPacket Structure */
 	ret = MaestroWriteHandler(dev, RecievedBuffer, count);
 	if (ret<0) DEBUG_ERROR("Problem Writting Data Written to /dev/Maestro%d, with error code %d", dev->minor, ret);
 

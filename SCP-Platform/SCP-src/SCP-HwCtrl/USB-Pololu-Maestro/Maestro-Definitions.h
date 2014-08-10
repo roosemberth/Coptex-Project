@@ -83,16 +83,16 @@ struct MaestroModeDescriptor{
 
 struct MaestroDescriptor {
     struct MaestroModeDescriptor 	ModeDescriptor;
-    struct MaestroChDescriptor 		ChDescriptors[24];	// FIXME: Picking 24 as the highest possibility
+    struct MaestroChDescriptor 		ChDescriptors[24];	// XXX: [Optional] Picking 24 as the highest possibility
     struct MaestroHwDescriptor 		HwDescriptor;
 };
 
-/* TODO: Catch up later */
+/* TODO:[Relevant] Catch up later */
 #define USB_CTRL_STD_INCOMING_REQ_TYPE		0x80 	// 10000000b
 #define USB_CTRL_TRANSF_MAX_BUFFER_SIZE		0xff	// Max Control Transfer wLength Field Value
 #define MAESTRO_CTRL_INTERFACE				0x05	// Transmit to 5th Interface (USB 2.0 Spec, Page 249)
 
-/* Maestro Contro Transfer bRequest */
+/* Maestro Control Transfer bRequest */
 #define MAESTRO_CONTROL_OUTGOING_REQ_TYPE	0x40	// 01000000b
 #define MAESTRO_CONTROL_INCOMING_REQ_TYPE	0xC0	// 11000000b
 
