@@ -57,7 +57,7 @@ IMU::Accelerometer::Accelerometer(I2C_Bus &I2C_Interface){
 	GPB1 |=  ADXL345_DataFormat_Range_2G | ADXL345_DataFormat_FullRes;
 	IMU_Bus->Write(AccelI2CAddress, ADXL345.DataFormat, &GPB1, 1);
 
-	GPB1 = 0 | ADXL345_BWRate_Rate_100HZ;
+	GPB1 = 0 | ADXL345_BWRate_Rate_100Hz;
 	IMU_Bus->Write(AccelI2CAddress, ADXL345.BWRate, &GPB1, 1);
 
 	GPB1 = 0;

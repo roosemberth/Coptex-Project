@@ -52,22 +52,22 @@
 
 #define ADXL345_BWRate_LowPower			1<<4
 #define ADXL345_BWRate_Rate 			0x0F	// 0b00001111
-	#define ADXL345_BWRate_Rate_3200HZ			0x0F		// 0b00001111
-	#define ADXL345_BWRate_Rate_1600HZ			0x0E		// 0b00001110
-	#define ADXL345_BWRate_Rate_800HZ			0x0D		// 0b00001101
-	#define ADXL345_BWRate_Rate_400HZ			0x0C		// 0b00001100
-	#define ADXL345_BWRate_Rate_200HZ			0x0B		// 0b00001011
-	#define ADXL345_BWRate_Rate_100HZ			0x0A		// 0b00001010
-	#define ADXL345_BWRate_Rate_50HZ			0x09		// 0b00001001
-	#define ADXL345_BWRate_Rate_25HZ			0x08		// 0b00001000
-	#define ADXL345_BWRate_Rate_2_5HZ			0x07		// 0b00000111
-	#define ADXL345_BWRate_Rate_6_25HZ			0x06		// 0b00000110
-	#define ADXL345_BWRate_Rate_3_13HZ			0x05		// 0b00000101
-	#define ADXL345_BWRate_Rate_1_56HZ			0x04		// 0b00000100
-	#define ADXL345_BWRate_Rate_0_78HZ			0x03		// 0b00000011
-	#define ADXL345_BWRate_Rate_0_39HZ			0x02		// 0b00000010
-	#define ADXL345_BWRate_Rate_0_20HZ			0x01		// 0b00000001
-	#define ADXL345_BWRate_Rate_0_10HZ			0x00		// 0b00000000
+	#define ADXL345_BWRate_Rate_3200Hz			0x0F		// 0b00001111
+	#define ADXL345_BWRate_Rate_1600Hz			0x0E		// 0b00001110
+	#define ADXL345_BWRate_Rate_800Hz			0x0D		// 0b00001101
+	#define ADXL345_BWRate_Rate_400Hz			0x0C		// 0b00001100
+	#define ADXL345_BWRate_Rate_200Hz			0x0B		// 0b00001011
+	#define ADXL345_BWRate_Rate_100Hz			0x0A		// 0b00001010
+	#define ADXL345_BWRate_Rate_50Hz			0x09		// 0b00001001
+	#define ADXL345_BWRate_Rate_25Hz			0x08		// 0b00001000
+	#define ADXL345_BWRate_Rate_2_5Hz			0x07		// 0b00000111
+	#define ADXL345_BWRate_Rate_6_25Hz			0x06		// 0b00000110
+	#define ADXL345_BWRate_Rate_3_13Hz			0x05		// 0b00000101
+	#define ADXL345_BWRate_Rate_1_56Hz			0x04		// 0b00000100
+	#define ADXL345_BWRate_Rate_0_78Hz			0x03		// 0b00000011
+	#define ADXL345_BWRate_Rate_0_39Hz			0x02		// 0b00000010
+	#define ADXL345_BWRate_Rate_0_20Hz			0x01		// 0b00000001
+	#define ADXL345_BWRate_Rate_0_10Hz			0x00		// 0b00000000
 
 #define ADXL345_PowerCtrl_Link			1<<5
 #define ADXL345_PowerCtrl_AutoSleep		1<<4
@@ -213,7 +213,5 @@ class IMU::Accelerometer{
 		I2C_Bus *IMU_Bus;
 		LinAlg::Vector3d Acceleration;
 };
-
-
 
 #endif //#ifndef SCP_HwCtrl__10_DOF__Accelerometer_h
