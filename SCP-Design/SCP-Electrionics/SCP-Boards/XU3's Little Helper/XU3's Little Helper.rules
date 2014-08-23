@@ -1,0 +1,229 @@
+
+(rules PCB XU3's Little Helper
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 33386)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.5)
+    )
+    (layer_rule In1.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.7)
+    )
+  )
+  (rule
+    (width 152.4)
+    (clear 152.6)
+    (clear 76.2 (type smd_to_turn_gap))
+    (clear 38.2 (type smd_smd))
+  )
+  (padstack "Via[0-1]_508:330.2_um"
+    (shape
+      (circle F.Cu 508.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 508.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_600:400_um"
+    (shape
+      (circle F.Cu 600.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 600.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_510:340_um"
+    (shape
+      (circle F.Cu 510.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 510.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (padstack "Via[0-1]_510:335_um"
+    (shape
+      (circle F.Cu 510.0 0.0 0.0)
+    )
+    (shape
+      (circle In1.Cu 510.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_508:330.2_um" "Via[0-1]_508:330.2_um" default
+  )
+  (via 
+    "Via[0-1]_600:400_um" "Via[0-1]_600:400_um" default
+  )
+  (via 
+    "Via[0-1]_510:340_um" "Via[0-1]_510:340_um" default
+  )
+  (via 
+    "Via[0-1]_510:335_um" "Via[0-1]_510:335_um" default
+  )
+  (via 
+    "Via[0-1]_508:330.2_um-kicad_default" "Via[0-1]_508:330.2_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_600:400_um-kicad_default" "Via[0-1]_600:400_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_510:340_um-kicad_default" "Via[0-1]_510:340_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_510:335_um-kicad_default" "Via[0-1]_510:335_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_508:330.2_um-Basse Puissanse" "Via[0-1]_508:330.2_um" "Basse Puissanse"
+  )
+  (via 
+    "Via[0-1]_600:400_um-Basse Puissanse" "Via[0-1]_600:400_um" "Basse Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:340_um-Basse Puissanse" "Via[0-1]_510:340_um" "Basse Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:335_um-Basse Puissanse" "Via[0-1]_510:335_um" "Basse Puissanse"
+  )
+  (via 
+    "Via[0-1]_508:330.2_um-Haute Puissanse" "Via[0-1]_508:330.2_um" "Haute Puissanse"
+  )
+  (via 
+    "Via[0-1]_600:400_um-Haute Puissanse" "Via[0-1]_600:400_um" "Haute Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:340_um-Haute Puissanse" "Via[0-1]_510:340_um" "Haute Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:335_um-Haute Puissanse" "Via[0-1]_510:335_um" "Haute Puissanse"
+  )
+  (via 
+    "Via[0-1]_508:330.2_um-Med Puissanse" "Via[0-1]_508:330.2_um" "Med Puissanse"
+  )
+  (via 
+    "Via[0-1]_600:400_um-Med Puissanse" "Via[0-1]_600:400_um" "Med Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:340_um-Med Puissanse" "Via[0-1]_510:340_um" "Med Puissanse"
+  )
+  (via 
+    "Via[0-1]_510:335_um-Med Puissanse" "Via[0-1]_510:335_um" "Med Puissanse"
+  )
+  (via 
+    "Via[0-1]_508:330.2_um-Signals" "Via[0-1]_508:330.2_um" Signals
+  )
+  (via 
+    "Via[0-1]_600:400_um-Signals" "Via[0-1]_600:400_um" Signals
+  )
+  (via 
+    "Via[0-1]_510:340_um-Signals" "Via[0-1]_510:340_um" Signals
+  )
+  (via 
+    "Via[0-1]_510:335_um-Signals" "Via[0-1]_510:335_um" Signals
+  )
+  (via_rule
+    default "Via[0-1]_508:330.2_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_508:330.2_um-kicad_default"
+  )
+  (via_rule
+    "Basse Puissanse" "Via[0-1]_508:330.2_um-Basse Puissanse"
+  )
+  (via_rule
+    "Haute Puissanse" "Via[0-1]_600:400_um-Haute Puissanse"
+  )
+  (via_rule
+    "Med Puissanse" "Via[0-1]_510:340_um-Med Puissanse"
+  )
+  (via_rule
+    Signals "Via[0-1]_510:335_um-Signals"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 152.4)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+  (class "kicad_default"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 152.4)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+  (class "Basse Puissanse"
+    /1.8V /3.3V /5.0V /GND
+    (clearance_class "Basse Puissanse")
+    (via_rule Basse Puissanse)
+    (rule
+      (width 152.4)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+  (class "Haute Puissanse"
+    /5.0V=H /GND=H /3.3V=H /1.8V=H
+    (clearance_class "Haute Puissanse")
+    (via_rule Haute Puissanse)
+    (rule
+      (width 450.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+  (class "Med Puissanse"
+    "Net-(C15-Pad1)" /3.3V=M /GND=M
+    (clearance_class "Med Puissanse")
+    (via_rule Med Puissanse)
+    (rule
+      (width 200.0)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+  (class Signals
+    "/1.8 I2C SCL" "/1.8 I2C SDA" "/PCA9698 IRQ" "/PCA9698 OE" "/PCA9698 RESET" /SCL /SDA "/XU PWRON"
+    /~AccelIRQ /~GyroIRQ /~PSReset "Net-(Adapter1-Pad5)" "Net-(Adapter1-Pad6)" "Net-(Adapter1-Pad7)" "Net-(P1-Pad3)" "Net-(P1-Pad4)"
+    "Net-(P1-Pad5)" "Net-(P1-Pad6)" "Net-(P3-Pad4)" "Net-(P3-Pad5)" "Net-(P3-Pad6)" "Net-(P3-Pad7)" "Net-(P3-Pad8)" "Net-(P3-Pad9)"
+    "Net-(P3-Pad10)" "Net-(P3-Pad11)" "Net-(P4-Pad3)" "Net-(P4-Pad4)" "Net-(P4-Pad5)" "Net-(P4-Pad6)" "Net-(P6-Pad1)" "Net-(P7-Pad1)"
+    "Net-(Q1-Pad3)" "Net-(Q10-Pad1)" "Net-(Q11-Pad1)" "Net-(Q13-Pad3)" "Net-(R4-Pad2)" "/Native I2C SCL" "/Native I2C SDA" /ADC0.AIN1
+    /ADC0.AIN3 /XE13 /XE14 /XE15 /XE16 /XE17 "/MAX3013_Enable"
+    (clearance_class Signals)
+    (via_rule Signals)
+    (rule
+      (width 152.6)
+    )
+    (circuit 
+      (use_layer F.Cu In1.Cu)
+    )
+  )
+)

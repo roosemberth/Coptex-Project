@@ -1,0 +1,549 @@
+Cmp-Mod V01 Created by Cvpcb (2014-jan-25)-product   date = sáb 14 jun 2014 12:34:06 CST
+
+BeginCmp
+TimeStamp = /53700B00;
+Reference = Adapter1;
+ValeurCmp = PCA9698_ADAPTER;
+IdModule  = Connect:SIL-7;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BDD6E;
+Reference = C1;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_elec_4x4.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BDD5F;
+Reference = C2;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BDD7D;
+Reference = C3;
+ValeurCmp = 1uF;
+IdModule  = Capacitors_SMD:c_elec_4x4.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C10DC;
+Reference = C4;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF117;
+Reference = C5;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF126;
+Reference = C6;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF135;
+Reference = C7;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF144;
+Reference = C8;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF153;
+Reference = C9;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF160;
+Reference = C10;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF166;
+Reference = C11;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF16C;
+Reference = C12;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF172;
+Reference = C13;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BF178;
+Reference = C14;
+ValeurCmp = 10nF;
+IdModule  = Capacitors_SMD:c_elec_4x4.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE85C;
+Reference = C15;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE84D;
+Reference = C16;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C10CD;
+Reference = C17;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C10BE;
+Reference = C18;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C10AF;
+Reference = C19;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C10A0;
+Reference = C20;
+ValeurCmp = 10nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0286;
+Reference = C21;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C023B;
+Reference = C22;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C024A;
+Reference = C23;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0259;
+Reference = C24;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0268;
+Reference = C25;
+ValeurCmp = 100nF;
+IdModule  = Capacitors_SMD:c_0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0277;
+Reference = C26;
+ValeurCmp = 10nF;
+IdModule  = Capacitors_SMD:c_elec_4x4.5;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A4802;
+Reference = GS1;
+ValeurCmp = SCL GPIO I2C;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A4811;
+Reference = GS2;
+ValeurCmp = SDA GPIO I2C;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A41F2;
+Reference = GS3;
+ValeurCmp = 10DOF-3.3;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539BFFC8;
+Reference = GS4;
+ValeurCmp = GND-M Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539D2B6D;
+Reference = GS5;
+ValeurCmp = GND-L Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539D039C;
+Reference = GS6;
+ValeurCmp = 1.8V-L Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C12AC;
+Reference = GS7;
+ValeurCmp = 3.3V-M Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539BFFB9;
+Reference = GS8;
+ValeurCmp = 3.3V-L Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /539BFFC1;
+Reference = GS9;
+ValeurCmp = 5.0V-L Network;
+IdModule  = Connect:GS2;
+EndCmp
+
+BeginCmp
+TimeStamp = /53703EB9;
+Reference = I1;
+ValeurCmp = 1.8V I2C;
+IdModule  = [EXT] Pinhead Library:pinhead-1X04;
+EndCmp
+
+BeginCmp
+TimeStamp = /53703EE0;
+Reference = I2;
+ValeurCmp = EXT I2C;
+IdModule  = [EXT] Pinhead Library:pinhead-1X04;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A51E5;
+Reference = P1;
+ValeurCmp = 3.3V USART;
+IdModule  = [EXT] Pinhead Library:pinhead-1X06;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C4DCA;
+Reference = P2;
+ValeurCmp = Expansion Port;
+IdModule  = [EXT] Pinhead Library:pinhead-1X12;
+EndCmp
+
+BeginCmp
+TimeStamp = /539B972E;
+Reference = P3;
+ValeurCmp = XU's_External_Header;
+IdModule  = [EXT] Pinhead Library:pinhead-2X15M;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A827C;
+Reference = P4;
+ValeurCmp = 3.3 SPI;
+IdModule  = [EXT] Pinhead Library:pinhead-1X06;
+EndCmp
+
+BeginCmp
+TimeStamp = /539C5B2B;
+Reference = P5;
+ValeurCmp = Power Port;
+IdModule  = [EXT] Pinhead Library:pinhead-1X04;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BCDDA;
+Reference = P6;
+ValeurCmp = CONN_1;
+IdModule  = [EXT] Pinhead Library:pinhead-1X01;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BCDE9;
+Reference = P7;
+ValeurCmp = CONN_1;
+IdModule  = [EXT] Pinhead Library:pinhead-1X01;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A7D40;
+Reference = Q1;
+ValeurCmp = IRLML2502;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /5398BB58;
+Reference = Q2;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BB175;
+Reference = Q3;
+ValeurCmp = AO3402;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BB759;
+Reference = Q4;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BBFD0;
+Reference = Q5;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BB845;
+Reference = Q6;
+ValeurCmp = IRLML2502;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BB855;
+Reference = Q7;
+ValeurCmp = IRLML2502;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BBFA8;
+Reference = Q8;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE01C;
+Reference = Q9;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE015;
+Reference = Q10;
+ValeurCmp = AO3402;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE4D0;
+Reference = Q11;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE4C9;
+Reference = Q12;
+ValeurCmp = AO3402;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0D31;
+Reference = Q13;
+ValeurCmp = IRLML2502;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0D3D;
+Reference = Q14;
+ValeurCmp = AO3401;
+IdModule  = [EXT] Reference Packages Library:-SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A8166;
+Reference = R1;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A4675;
+Reference = R2;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A4666;
+Reference = R3;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C1FA4;
+Reference = R4;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BD1B8;
+Reference = R5;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BA402;
+Reference = R6;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BA3D8;
+Reference = R7;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE023;
+Reference = R8;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C24FC;
+Reference = R9;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C2515;
+Reference = R10;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538BE4D7;
+Reference = R11;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C0D37;
+Reference = R12;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C13AB;
+Reference = R13;
+ValeurCmp = 4k7;
+IdModule  = [EXT] RCL-2 Library:rcl-2-R0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /53700AD3;
+Reference = Sensor1;
+ValeurCmp = 10-DOF;
+IdModule  = [EXT] Coptex Project Library:10-DOF;
+EndCmp
+
+BeginCmp
+TimeStamp = /538C1FB3;
+Reference = SW1;
+ValeurCmp = Power On XU;
+IdModule  = [EXT] Switches Library:switch-misc-FSM;
+EndCmp
+
+BeginCmp
+TimeStamp = /538A68C9;
+Reference = U1;
+ValeurCmp = MAX3013;
+IdModule  = [EXT] Reference Packages Library:-TSSOP20;
+EndCmp
+
+BeginCmp
+TimeStamp = /539B866B;
+Reference = U2;
+ValeurCmp = AMS117-3.3;
+IdModule  = [EXT] Reference Packages Library:-SOT223;
+EndCmp
+
+BeginCmp
+TimeStamp = /537007D9;
+Reference = U3;
+ValeurCmp = PCA9306;
+IdModule  = [Element14] Texas Instruments Library:SOP50P310X90-8N;
+EndCmp
+
+BeginCmp
+TimeStamp = /53700B6D;
+Reference = U4;
+ValeurCmp = PCA9517A;
+IdModule  = [EXT] Reference Packages Library:-TSSOP8;
+EndCmp
+
+EndListe

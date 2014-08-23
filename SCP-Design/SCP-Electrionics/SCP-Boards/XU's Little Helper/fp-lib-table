@@ -1,0 +1,8 @@
+(fp_lib_table
+  (lib (name "[EXT] Pinhead Library")(type Legacy)(uri "/home/roosemberth/Téléchargements/Kicad Libraries/pinhead.mod")(options "")(descr ""))
+  (lib (name "[EXT] RCL-2 Library")(type Legacy)(uri "/home/roosemberth/Téléchargements/Kicad Libraries/rcl-2.mod")(options "")(descr ""))
+  (lib (name "[EXT] Coptex Project Library")(type Legacy)(uri "/home/roosemberth/Bureau/Temporal Investigations/Temo/Xu's Little Helper/Mods/Coptex Project - Scorpion.mod")(options "")(descr ""))
+  (lib (name "[EXT] Reference Packages Library")(type Legacy)(uri "/home/roosemberth/Téléchargements/Kicad Libraries/ref-packages.mod")(options "")(descr ""))
+  (lib (name "[EXT] Switches Library")(type Legacy)(uri "/home/roosemberth/Téléchargements/Kicad Libraries/switch-misc.mod")(options "")(descr ""))
+  (lib (name "[Element14] Texas Instruments Library")(type Eagle)(uri "/home/roosemberth/Téléchargements/Eagle Libraries/Texas Instruments/Texas Instruments_By_element14_Batch_1.lbr")(options "")(descr ""))
+)

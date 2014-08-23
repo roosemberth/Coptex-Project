@@ -11,16 +11,16 @@ Coptex Project concept is building a Helicopter Capable of full understanding of
 
 'Scorpion Copter' Is the name of the main device, Running an AI Engine for Human Interaction, Route Planning, Collision-Avoidance (ACRP: Anti-Collision Route Planner)
 
-Coptex Project it's been developped over a Cutting-Edge Platform (Samsung's exynos5410 SoC) with a fairy complex Multicore Processing, Embedding 4 Cortex A7 Processors for System Static Load and 4 Cortex A15 for System Real-Time Artificial Intelligence tasks, PowerVR SGX544MP3 GPU for GPGPU-Programming model with OpenCL.
+Coptex Project it's been developped over a Cutting-Edge Platform (Samsung's exynos5422 SoC) with a fairy complex Multicore Processing, Embedding 4 Cortex A7 Processors for System Static Load and 4 Cortex A15 for System Real-Time Artificial Intelligence tasks, Mali-T628 GPU for GPGPU-Programming model with OpenCL.
 
 *Scorpion Copter Will be equipped with 2 HD Cameras to provice stereo-vision and Power a Telemetry Engine.
-*In the mechanical part, It will probably be printed in Titanium and Carbon Nanotubes Structures.
+*In the mechanical part, It will probably be printed in Titanium and/or Carbon Nanotubes Structures.
 *High Speed Networking Capabilities WiFi (802.11b/g; 25Mbps), GSM, 3G (7.2Mbps) Interface.
-*Highly Ecryted Security Protocols (SSH, SSL, SELinux,...).
+*Ecryted Security Protocols (SSL, SELinux).
 *In Case of Emergency Protocols, Restore a Secure Shell If Connection gets Compromised.
-*Advanced Magnetic Suspension
-*Full Spatial-Position Control
-*Worst-Case Escenario Recovering System
+*Dynamic Magnetic Suspension
+*Full Inertial-Spatial-Pose Control
+*Worst-Case Scenario Recovering System
 
 Actual Stage is From Planning to First Prototype
 
