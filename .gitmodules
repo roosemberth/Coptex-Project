@@ -1,4 +1,4 @@
 [submodule "SCP-Platform/SCP-Kernel"]
 	path = SCP-Platform/SCP-Kernel
 	url = https://github.com/roosemberth/Coptex-Project.SCP-Kernel.git
-	branch = SCP-Kernel-Dev
+	branch = SCP-Svarog-Kernel

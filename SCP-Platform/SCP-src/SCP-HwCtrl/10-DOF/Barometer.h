@@ -28,6 +28,7 @@
 #include <eigen3/Eigen/Dense>
 #include "IMU.h"
 #include <math.h>
+#include <ctype.h>
 
 #define BMP085_
 
@@ -82,7 +83,35 @@ class IMU::Barometer{
 				MDH = 0xBE;
 				MDL = 0xBF;
 			}
-		};
+		} BMP085;
+		Barometer(I2C_Bus &I2C_Interface);
+		bool UpdateData();
+		char *SysStatus;
+		long *SysPreassure;
+		char *SysTemperature;
+		bool config(void *ConfigPacket);
+	private:
+		u8 GPB1;
+		u8 GPB2;
+		u8 BarometerI2CAddress;
+		I2C_Bus *IMU_Bus;
+		short Temperature;
+		long Preassure;
+
+		// Calibration Values:
+		int AC1;
+		int AC2;
+		int AC3;
+		uint AC4;
+		uint AC5;
+		uint AC6;
+		int B1;
+		int B2;
+		int MB;
+		int MC;
+		int MD;
+
+		long B5;
 };
 
 #endif	// #ifndef SCP_HwCtrl__10DOF__Barometer_h
