@@ -109,7 +109,7 @@ public:
 			IDRegC			= 0x0C;
 		}
 	} HMC5883L;
-	Magnetometer(I2C_Bus &I2C_Interface);
+	Magnetometer(I2C_Bus &I2C_Interface, u8 MagnetometerI2CAddr);
 	bool UpdateData();
 	LinAlg::Vector3d *AngularRateP();
 	bool config(void *ConfigPacket);
@@ -120,5 +120,47 @@ private:
 	I2C_Bus *IMU_Bus;
 	LinAlg::Vector3d<double> MagneticField;
 };
+
+bool IMU::Magnetometer::UpdateData(){
+	GPB1 = 0;
+	GPB2 = 0;
+	MagneticField << 0, 0, 0;
+
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutXMSB, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutXLSB, &GPB2, 1)) return true;
+	MagneticField(0) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutYMSB, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutYLSB, &GPB2, 1)) return true;
+	MagneticField(1) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutZMSB, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutZLSB, &GPB2, 1)) return true;
+	MagneticField(2) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+
+	return false;
+
+}
+
+IMU::Magnetometer::Magnetometer(I2C_Bus &I2C_Interface, u8 MagnetometerI2CAddr){
+	MagnetometerI2CAddress = MagnetometerI2CAddr;
+	IMU_Bus = I2C_Interface;
+	MagneticField << 0, 0, 0;
+	GPB1 = 0;
+	GPB2 = 0;
+	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegA, &GPB1, 1)!=0x48) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
+	GPB1 = 0;
+	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegB, &GPB1, 1)!=0x34) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
+	GPB1 = 0;
+	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegC, &GPB1, 1)!=0x33) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
+
+	GPB1 = 0 | HMC5883L_ConfigRegA_AvgSamples_8 | HMC5883L_ConfigRegA_DataOutputRate_15Hz | HMC5883L_ConfigRegA_MeasureConfig_Normal;
+	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ConfigRegA, &GPB1, 1);
+	GPB1 = 0 | HMC5883L_ConfigRegB_GainConfig_390LSb_G;
+	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ConfigRegB, &GPB1, 1);
+	GPB1 = 0;
+	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ModeReg, &GPB1, 1);
+
+	UpdateData();
+}
+
 
 #endif // #ifndef SCP_HwCtrl__10_DOF__Magnetometer_h

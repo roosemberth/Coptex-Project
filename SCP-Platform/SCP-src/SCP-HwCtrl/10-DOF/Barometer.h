@@ -84,7 +84,7 @@ class IMU::Barometer{
 				MDL = 0xBF;
 			}
 		} BMP085;
-		Barometer(I2C_Bus &I2C_Interface);
+		Barometer(I2C_Bus &I2C_Interface, u8 Barometer_I2CAddress);
 		bool UpdateData();
 		char *SysStatus;
 		long *SysPreassure;
@@ -113,5 +113,49 @@ class IMU::Barometer{
 
 		long B5;
 };
+
+bool IMU::Barometer::Barometer(I2C_Bus &I2C_Interface, u8 Barometer_I2CAddress){
+	BarometerI2CAddress = Barometer_I2CAddress;
+	IMU_Bus = I2C_Interface;
+	Preassure = 0;
+	Temperature = 0;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC1H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC1L, &GPB2, 1)) return true;
+	AC1 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC2H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC2L, &GPB2, 1)) return true;
+	AC2 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC3H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC3L, &GPB2, 1)) return true;
+	AC3 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC4H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC4L, &GPB2, 1)) return true;
+	AC4 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC5H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC5L, &GPB2, 1)) return true;
+	AC5 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC6H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.AC6L, &GPB2, 1)) return true;
+	AC6 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.B1H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.B1L, &GPB2, 1)) return true;
+	B1 = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.B2H, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.B2L, &GPB2, 1)) return true;
+	B2 = ((int) ((GPB2<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MBH, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MBL, &GPB2, 1)) return true;
+	MB = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MCH, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MCL, &GPB2, 1)) return true;
+	MC = ((int) ((GPB1<<8) | GPB2));
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MDH, &GPB1, 1)) return true;
+	if (IMU_Bus->Read(BarometerI2CAddress, BMP085.MDL, &GPB2, 1)) return true;
+	MD = ((int) ((GPB1<<8) | GPB2));
+	return false;
+}
+
+// TODO:[Critical] Implementation Pending!
+
 
 #endif	// #ifndef SCP_HwCtrl__10DOF__Barometer_h

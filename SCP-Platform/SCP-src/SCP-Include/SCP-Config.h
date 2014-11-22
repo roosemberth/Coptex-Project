@@ -16,7 +16,6 @@ typedef unsigned short u16;
 typedef unsigned int u32;
 typedef unsigned char u8;
 
-#define SCP_IMU_I2C_Bus "/dev/i2c-10"
 #define SCP_Gyroscope_I2CAddr		0x69
 #define SCP_Accelerometer_I2CAddr	0x53
 #define SCP_Magnetometer_I2CAddr	0x1E
