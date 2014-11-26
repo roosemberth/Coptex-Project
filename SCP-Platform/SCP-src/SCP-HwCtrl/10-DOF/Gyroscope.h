@@ -22,9 +22,6 @@
 
 #include "../../SCP-Include/SCP-Config.h"
 #include "../HwPlatforms/I2C-Bus.h"
-#include <eigen3/Eigen/Dense>
-#include "IMU.h"
-#include <math.h>
 
 // ************************************************************************
 // 		Software API Definition for L3G4200D MEMS Angular Rate Sensor
@@ -126,157 +123,157 @@
 #define L3G4200D_INT1Duration_D1	1<<1
 #define L3G4200D_INT1Duration_D0	1<<0
 
-using namespace HwCtrl;
+// ************************************************************************
 
-class IMU::Gyroscope{
-	public:
-		class C_L3G4200D{
-			public:
-				u8 Who_Am_I;
-				u8 CtrlReg1;
-				u8 CtrlReg2;
-				u8 CtrlReg3;
-				u8 CtrlReg4;
-				u8 CtrlReg5;
-				u8 Reference;
-				u8 OutTemp;
-				u8 StatusReg;
-				u8 OutXL;
-				u8 OutXH;
-				u8 OutYL;
-				u8 OutYH;
-				u8 OutZL;
-				u8 OutZH;
-				u8 FifoCtrlReg;
-				u8 FifoSrcReg;
-				u8 Int1Cfg;
-				u8 Int1Src;
-				u8 Int1TshXH;
-				u8 Int1TshXL;
-				u8 Int1TshYH;
-				u8 Int1TshYL;
-				u8 Int1TshZH;
-				u8 Int1TshZL;
-				u8 Int1Duration;
-				class C_Sensitivity{
-					public:
-						double S_250dps;
-						double S_500dps;
-						double S_2000dps;
-						double Current;
-						C_Sensitivity(){
-							S_250dps = 0.00875 * M_PI;
-							S_500dps = 0.0175 * M_PI;
-							S_2000dps = 0.07 * M_PI;
-							Current = S_250dps;
-						}
-				} Sensitivity;
-				C_L3G4200D(){
-					Who_Am_I = 0x0F;
-					CtrlReg1 = 0x20;
-					CtrlReg2 = 0x21;
-					CtrlReg3 = 0x22;
-					CtrlReg4 = 0x23;
-					CtrlReg5 = 0x24;
-					Reference = 0x25;
-					OutTemp = 0x26;
-					StatusReg = 0x27;
-					OutXL = 0x28;
-					OutXH = 0x29;
-					OutYL = 0x2A;
-					OutYH = 0x2B;
-					OutZL = 0x2C;
-					OutZH = 0x2D;
-					FifoCtrlReg = 0x2E;
-					FifoSrcReg = 0x2F;
-					Int1Cfg = 0x30;
-					Int1Src = 0x31;
-					Int1TshXH = 0x32;
-					Int1TshXL = 0x33;
-					Int1TshYH = 0x34;
-					Int1TshYL = 0x35;
-					Int1TshZH = 0x36;
-					Int1TshZL = 0x37;
-					Int1Duration = 0x38;
-				}
-		} L3G4200D;
-		Gyroscope(I2C_Bus &I2C_Interface, u8 Gyroscope_I2CAddr);
-		bool UpdateData();
-		char *SysStatus();
-		char *SysTemperatureDelta();
-		LinAlg::Vector3d *AngularRateP();
-		bool config(void *ConfigPacket);
-	private:
-		u8 GPB1;																// General-Purpose Buffer 1
-		u8 GPB2;																// General-Purpose Buffer 2
-		u8 GyroI2CAddress;
-		I2C_Bus *IMU_Bus;
-		char TemperatureDelta;
-		LinAlg::Vector3d<double> AngularRate;
-		char Status;
+typedef unsigned char u8;
+
+struct S_L3G4200D_Gyroscope{
+		const u8 Who_Am_I;
+		const u8 CtrlReg1;
+		const u8 CtrlReg2;
+		const u8 CtrlReg3;
+		const u8 CtrlReg4;
+		const u8 CtrlReg5;
+		const u8 Reference;
+		const u8 OutTemp;
+		const u8 StatusReg;
+		const u8 OutXL;
+		const u8 OutXH;
+		const u8 OutYL;
+		const u8 OutYH;
+		const u8 OutZL;
+		const u8 OutZH;
+		const u8 FifoCtrlReg;
+		const u8 FifoSrcReg;
+		const u8 Int1Cfg;
+		const u8 Int1Src;
+		const u8 Int1TshXH;
+		const u8 Int1TshXL;
+		const u8 Int1TshYH;
+		const u8 Int1TshYL;
+		const u8 Int1TshZH;
+		const u8 Int1TshZL;
+		const u8 Int1Duration;
+		struct S_Sensitivity{
+				// TODO: [Critical] Fix 'double' type use
+				const long S_250dps;
+				const long S_500dps;
+				const long S_2000dps;
+				long Current;
+		} Sensitivity;
+} L3G4200D_Gyroscope = {
+		.Who_Am_I = 0x0F,
+		.CtrlReg1 = 0x20,
+		.CtrlReg2 = 0x21,
+		.CtrlReg3 = 0x22,
+		.CtrlReg4 = 0x23,
+		.CtrlReg5 = 0x24,
+		.Reference = 0x25,
+		.OutTemp = 0x26,
+		.StatusReg = 0x27,
+		.OutXL = 0x28,
+		.OutXH = 0x29,
+		.OutYL = 0x2A,
+		.OutYH = 0x2B,
+		.OutZL = 0x2C,
+		.OutZH = 0x2D,
+		.FifoCtrlReg = 0x2E,
+		.FifoSrcReg = 0x2F,
+		.Int1Cfg = 0x30,
+		.Int1Src = 0x31,
+		.Int1TshXH = 0x32,
+		.Int1TshXL = 0x33,
+		.Int1TshYH = 0x34,
+		.Int1TshYL = 0x35,
+		.Int1TshZH = 0x36,
+		.Int1TshZL = 0x37,
+		.Int1Duration = 0x38,
+		.Sensitivity = {
+				// TODO [Relevant] Fix PI
+				.S_250dps = 0.00875 * 3.141592,
+				.S_500dps = 0.0175 * 3.141592,
+				.S_2000dps = 0.07 * 3.141592,
+				.Current = 0
+		}
 };
 
-bool IMU::Gyroscope::UpdateData(){
+void Gyroscope_Init(struct S_I2C_Bus_Data *I2C_Bus, u8 Gyroscope_I2CAddr){
+	char GPB1 = 0;
+	char GPB2 = 0;
+	Gyroscope.I2C_Address = Gyroscope_I2CAddr;
+	Gyroscope.IMU_Bus = I2C_Bus;
+	Gyroscope.AngularRate[0] = 0;
+	Gyroscope.AngularRate[1] = 0;
+	Gyroscope.AngularRate[2] = 0;
+	Gyroscope.TemperatureDelta = 0;
+	Gyroscope.SysStatus = 0;
+	// TODO:[Critical] Implement Error-Notifying Mechanism
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->Who_Am_I, &GPB1, 1)!=0xD3)
+		Gyroscope.SysStatus |= 1<<0;
+	GPB1 = 0 | L3G4200D_CtrlReg1_PD | \
+			L3G4200D_CtrlReg1_Xen | \
+			L3G4200D_CtrlReg1_Yen | \
+			L3G4200D_CtrlReg1_Zen;
+	Gyroscope.IMU_Bus->Write(Gyroscope.I2C_Address, Gyroscope.RegMap->CtrlReg1, &GPB1, 1);
 	GPB1 = 0;
-	GPB2 = 0;
-	AngularRate << 0, 0, 0;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutXH, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutXL, &GPB2, 1)) return true;
-	AngularRate(0) = ((u16) ((GPB1<<8) | GPB2)) * L3G4200D.Sensitivity.Current;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutYH, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutYL, &GPB2, 1)) return true;
-	AngularRate(1) = ((u16) ((GPB1<<8) | GPB2)) * L3G4200D.Sensitivity.Current;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutZH, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutZL, &GPB2, 1)) return true;
-	AngularRate(2) = ((u16) ((GPB1<<8) | GPB2)) * L3G4200D.Sensitivity.Current;
-	if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.OutTemp, &GPB1, 1)) return true;
-	TemperatureDelta = GPB1;
-	return false;
-}
-
-IMU::Gyroscope::Gyroscope(I2C_Bus &I2C_Interface, u8 Gyroscope_I2CAddr){
-	GyroI2CAddress = Gyroscope_I2CAddr;
-	IMU_Bus = I2C_Interface;
-	AngularRate << 0, 0, 0;
-	TemperatureDelta = 0;
-	Status = 0;
-	GPB1 = 0;
-	GPB2 = 0;
-	// if (IMU_Bus->Read(GyroI2CAddress, L3G4200D.Who_Am_I, &GPB1, 1)!=0xD3) TODO:[Critical] Implement Error-Notifying Mechanism
-	GPB1 = 0 | L3G4200D_CtrlReg1_PD | L3G4200D_CtrlReg1_Xen | L3G4200D_CtrlReg1_Yen | L3G4200D_CtrlReg1_Zen;
-	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg1, &GPB1, 1);
-
-	GPB1 = 0;
-	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg2, &GPB1, 1);
-
+	Gyroscope.IMU_Bus->Write(Gyroscope.I2C_Address, Gyroscope.RegMap->CtrlReg2, &GPB1, 1);
 	GPB1 = 0 | L3G4200D_CtrlReg3_I2DRDY;
-	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg3, &GPB1, 1);
-
+	Gyroscope.IMU_Bus->Write(Gyroscope.I2C_Address, Gyroscope.RegMap->CtrlReg3, &GPB1, 1);
 	GPB1 = 0 | L3G4200D_Sensitivity_S_250dps;
-	L3G4200D.Sensitivity.Current = L3G4200D.Sensitivity.S_250dps;
-	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg4, &GPB1, 1);
-
+	Gyroscope.RegMap->Sensitivity.Current = Gyroscope.RegMap->Sensitivity.S_250dps;
+	Gyroscope.IMU_Bus->Write(Gyroscope.I2C_Address, Gyroscope.RegMap->CtrlReg4, &GPB1, 1);
 	GPB1 = 0;
-	IMU_Bus->Write(GyroI2CAddress, L3G4200D.CtrlReg5, &GPB1, 1);
+	Gyroscope.IMU_Bus->Write(Gyroscope.I2C_Address, Gyroscope.RegMap->CtrlReg5, &GPB1, 1);
 
-	UpdateData();
+	Gyroscope.UpdateData();
 }
 
-char *IMU::Gyroscope::SysStatus(){
-	return &Status;
+char Gyroscope_UpdateData(){
+	char ret = 0;
+	char GPB1 = 0;
+	char GPB2 = 0;
+	Gyroscope.AngularRate = {0,0,0}
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutXH, &GPB1, 1)) ret |= 1<<0;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutXL, &GPB2, 1)) ret |= 1<<1;
+	AngularRate(0) = ((u16) ((GPB1<<8) | GPB2)) * Gyroscope.RegMap->Sensitivity.Current;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutYH, &GPB1, 1)) ret |= 1<<2;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutYL, &GPB2, 1)) ret |= 1<<3;
+	AngularRate(1) = ((u16) ((GPB1<<8) | GPB2)) * Gyroscope.RegMap->.Sensitivity.Current;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutZH, &GPB1, 1)) ret |= 1<<4;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutZL, &GPB2, 1)) ret |= 1<<5;
+	AngularRate(2) = ((u16) ((GPB1<<8) | GPB2)) * Gyroscope.RegMap->Sensitivity.Current;
+	if (Gyroscope.IMU_Bus->Read(Gyroscope.I2C_Address, Gyroscope.RegMap->OutTemp, &GPB1, 1)) ret |= 1<<6;
+	Gyroscope.TemperatureDelta = GPB1;
+	return ret;
 }
 
-char *IMU::Gyroscope::SysTemperatureDelta(){
-	return &TemperatureDelta;
+void Gyroscope_Update_SysStatus(){
+
 }
 
-LinAlg::Vector3d *IMU::Gyroscope::AngularRateP(){
-	return &AngularRate;
-}
-
-bool IMU::Gyroscope::config(void *ConfigPacket){
+int Gyroscope_Config(){
+	int ret = 0;
 	//TODO:[Optional] Implement Config Manager
-	return false;
+	return ret;
 }
+
+struct S_Gyroscope{
+	struct S_L3G4200D_Gyroscope *RegMap;
+	struct S_I2C_Bus_Data *IMU_Bus;
+	u8 I2C_Address;
+	char TemperatureDelta;
+	char SysStatus;
+	long AngularRate[3];
+	void (*Init) 		(struct S_I2C_Bus_Data *I2C_Bus, u8 Gyroscope_I2CAddr);
+	char (*UpdateData) 	(void);
+	void (*UpdateSysStatus)	(void);
+	int	 (*Config) 		(void *ConfigPacket);
+} Gyroscope = {
+		.RegMap = &L3G4200D_Gyroscope,
+		.Init	= &Gyroscope_Init,
+		.UpdateData  	 = &Gyroscope_UpdateData,
+		.UpdateSysStatus = &Gyroscope_Update_SysStatus,
+		.Config			 = &Gyroscope_Config
+};
 
 #endif //#ifndef SCP_HwCtrl__10_DOF__Gyroscope_h

@@ -24,9 +24,6 @@
 
 #include "../../SCP-Include/SCP-Config.h"
 #include "../HwPlatforms/I2C-Bus.h"
-#include <eigen3/Eigen/Dense>
-#include "IMU.h"
-#include <math.h>
 
 // ************************************************************************
 // 		Software API Definition for HMC5883L 3-Axis Digital Compass IC
@@ -75,92 +72,117 @@
 #define HMC5883L_StatusReg_Lock					1<<1
 #define HMC5883L_StatusReg_Ready				1<<0
 
-using namespace HwCtrl;
+// ************************************************************************
 
-class IMU::Magnetometer{
-public:
-	class C_HMC5883L{
-		u8 ConfigRegA;
-		u8 ConfigRegB;
-		u8 ModeReg;
-		u8 DataOutXMSB;
-		u8 DataOutXLSB;
-		u8 DataOutYMSB;
-		u8 DataOutYLSB;
-		u8 DataOutZMSB;
-		u8 DataOutZLSB;
-		u8 StatusReg;
-		u8 IDRegA;
-		u8 IDRegB;
-		u8 IDRegC;
-		C_HMC5883L(){
-			ConfigRegA		= 0x00;
-			ConfigRegB		= 0x01;
-			ModeReg			= 0x02;
-			DataOutXMSB		= 0x03;
-			DataOutXLSB		= 0x04;
-			DataOutZMSB		= 0x05;
-			DataOutZLSB		= 0x06;
-			DataOutYMSB		= 0x07;
-			DataOutYLSB		= 0x08;
-			StatusReg		= 0x09;
-			IDRegA			= 0x0A;
-			IDRegB			= 0x0B;
-			IDRegC			= 0x0C;
-		}
-	} HMC5883L;
-	Magnetometer(I2C_Bus &I2C_Interface, u8 MagnetometerI2CAddr);
-	bool UpdateData();
-	LinAlg::Vector3d *AngularRateP();
-	bool config(void *ConfigPacket);
-private:
-	u8 GPB1;																// General-Purpose Buffer 1
-	u8 GPB2;																// General-Purpose Buffer 2
-	u8 MagnetometerI2CAddress;
-	I2C_Bus *IMU_Bus;
-	LinAlg::Vector3d<double> MagneticField;
+struct S_HMC5883L_Magnetometer{
+		const u8 ConfigRegA;
+		const u8 ConfigRegB;
+		const u8 ModeReg;
+		const u8 DataOutXMSB;
+		const u8 DataOutXLSB;
+		const u8 DataOutYMSB;
+		const u8 DataOutYLSB;
+		const u8 DataOutZMSB;
+		const u8 DataOutZLSB;
+		const u8 StatusReg;
+		const u8 IDRegA;
+		const u8 IDRegB;
+		const u8 IDRegC;
+} HMC5883L_Magnetometer = {
+		.ConfigRegA		= 0x00,
+		.ConfigRegB		= 0x01,
+		.ModeReg		= 0x02,
+		.DataOutXMSB	= 0x03,
+		.DataOutXLSB	= 0x04,
+		.DataOutZMSB	= 0x05,
+		.DataOutZLSB	= 0x06,
+		.DataOutYMSB	= 0x07,
+		.DataOutYLSB	= 0x08,
+		.StatusReg		= 0x09,
+		.IDRegA			= 0x0A,
+		.IDRegB			= 0x0B,
+		.IDRegC			= 0x0C
 };
 
-bool IMU::Magnetometer::UpdateData(){
+void Magnetometer_Init(struct S_I2C_Bus_Data *I2C_Bus, u8 Magnetometer_I2CAddr){
+	Magnetometer.I2C_Address = Magnetometer_I2CAddr;
+	Magnetometer.IMU_Bus = I2C_Bus;
+	Magnetometer.MagneticField[0] = 0;
+	Magnetometer.MagneticField[1] = 0;
+	Magnetometer.MagneticField[2] = 0;
+	char GPB1 = 0;
+	char GPB2 = 0;
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->IDRegA, &GPB1, 1)!=0x48)
+		Magnetometer.SysStatus |= 1<<0;
 	GPB1 = 0;
-	GPB2 = 0;
-	MagneticField << 0, 0, 0;
-
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutXMSB, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutXLSB, &GPB2, 1)) return true;
-	MagneticField(0) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutYMSB, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutYLSB, &GPB2, 1)) return true;
-	MagneticField(1) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutZMSB, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.DataOutZLSB, &GPB2, 1)) return true;
-	MagneticField(2) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
-
-	return false;
-
-}
-
-IMU::Magnetometer::Magnetometer(I2C_Bus &I2C_Interface, u8 MagnetometerI2CAddr){
-	MagnetometerI2CAddress = MagnetometerI2CAddr;
-	IMU_Bus = I2C_Interface;
-	MagneticField << 0, 0, 0;
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->IDRegB, &GPB1, 1)!=0x34)
+		Magnetometer.SysStatus |= 1<<1;
 	GPB1 = 0;
-	GPB2 = 0;
-	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegA, &GPB1, 1)!=0x48) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
-	GPB1 = 0;
-	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegB, &GPB1, 1)!=0x34) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
-	GPB1 = 0;
-	//if (IMU_Bus->Read(MagnetometerI2CAddress, HMC5883L.IDRegC, &GPB1, 1)!=0x33) return true; //TODO:[Critical] Implement Error-Notifying Mechanism
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->IDRegC, &GPB1, 1)!=0x33)
+		Magnetometer.SysStatus |= 1<<2;
 
-	GPB1 = 0 | HMC5883L_ConfigRegA_AvgSamples_8 | HMC5883L_ConfigRegA_DataOutputRate_15Hz | HMC5883L_ConfigRegA_MeasureConfig_Normal;
-	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ConfigRegA, &GPB1, 1);
+	GPB1 = 0 | HMC5883L_ConfigRegA_AvgSamples_8 | \
+			HMC5883L_ConfigRegA_DataOutputRate_15Hz | \
+			HMC5883L_ConfigRegA_MeasureConfig_Normal;
+	Magnetometer.IMU_Bus->Write(Magnetometer.I2C_Address, Magnetometer.RegMap->ConfigRegA, &GPB1, 1);
 	GPB1 = 0 | HMC5883L_ConfigRegB_GainConfig_390LSb_G;
-	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ConfigRegB, &GPB1, 1);
+	Magnetometer.IMU_Bus->Write(Magnetometer.I2C_Address, Magnetometer.RegMap->ConfigRegB, &GPB1, 1);
 	GPB1 = 0;
-	IMU_Bus->Write(MagnetometerI2CAddress, HMC5883L.ModeReg, &GPB1, 1);
+	Magnetometer.IMU_Bus->Write(Magnetometer.I2C_Address, Magnetometer.RegMap->ModeReg, &GPB1, 1);
 
 	UpdateData();
 }
 
+char Magnetometer_UpdateData(){
+	char ret;
+	char GPB1 = 0;
+	char GPB2 = 0;
+	Magnetometer.MagneticField[0] = 0;
+	Magnetometer.MagneticField[1] = 0;
+	Magnetometer.MagneticField[2] = 0;
+
+	//TODO:[Critical] Implement Error-Notifying Mechanism
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutXMSB, &GPB1, 1)) ret |= 1<<0;
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutXLSB, &GPB2, 1)) ret |= 1<<1;
+	MagneticField(0) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+
+	//TODO:[Critical] Implement Error-Notifying Mechanism
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutYMSB, &GPB1, 1)) ret |= 1<<2;
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutYLSB, &GPB2, 1)) ret |= 1<<3;
+	MagneticField(1) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+	//TODO:[Critical] Implement Error-Notifying Mechanism
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutZMSB, &GPB1, 1)) ret |= 1<<4;
+	if (Magnetometer.IMU_Bus->Read(Magnetometer.I2C_Address, Magnetometer.RegMap->DataOutZLSB, &GPB2, 1)) ret |= 1<<5;
+	MagneticField(2) = ((u16) ((GPB1<<8) | GPB2)) /* TODO:[Critical] Multiply by Scaling Constant */;
+	return ret;
+}
+
+void Magnetometer_Update_SysStatus(){
+	//TODO:[Optional] Implement Config Manager
+}
+
+int Magnetometer_Config(){
+	int ret = 0;
+	//TODO:[Optional] Implement Config Manager
+	return ret;
+}
+
+struct S_Magnetometer{
+		struct S_HMC5883L_Magnetometer *RegMap;
+		struct S_I2C_Bus_Data *IMU_Bus;
+		u8 I2C_Address;
+		long MagneticField;
+		char SysStatus;
+		void (*Init)		(struct S_I2C_Bus_Data *I2C_Bus, u8 Magnetometer_I2CAddr);
+		char (*UpdateData)	(void);
+		void (*UpdateSysStatus)	(void);
+		int  (*Config)		(void *ConfigPacket);
+} Magnetometer = {
+		.RegMap = &HMC5883L_Magnetometer,
+		.Init	= &Magnetometer_Init,
+		.UpdateData 	= &Magnetometer_UpdateData,
+		.UpdateSysStatus= &Magnetometer_Update_SysStatus,
+		.Config			= &Magnetometer_Config
+};
 
 #endif // #ifndef SCP_HwCtrl__10_DOF__Magnetometer_h

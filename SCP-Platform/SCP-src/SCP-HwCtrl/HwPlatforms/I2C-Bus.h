@@ -12,34 +12,48 @@
  *
  */
 
-#include <linux/i2c.h>
 #include <linux/i2c-dev.h>
+#include <linux/i2c.h>
 #include <sys/ioctl.h>
 #include <fcntl.h>
 
-class I2C_Bus{
-	public:
-		I2C_Bus(const char *Device);
-		bool Write(u16 Addr, u8 RegAddr, u8 *Data, char Bytes);		// return 1 on Error
-		bool Read(u16 Addr, u8 RegAddr, u8 *Data, char Bytes);		// return 1 on Error
-	private:
-		struct i2c_rdwr_ioctl_data Queue;
-		const char Dev[];
-		int handle;
-};
+typedef unsigned char 	u8;
+typedef unsigned short 	u16;
+typedef unsigned int 	u32;
 
-I2C_Bus::I2C_Bus(const char *Device){
+void I2C_Bus_Init(const char *Device){
 	char GPC;														// General Purpose Counter
 	int io;
-	handle = -1;
-	Dev = Device;
+	I2C_Bus_Data.Handle = -1;
+	I2C_Bus_Data.Dev = Device;
 	io = -1;
-	while (++GPC <= 10 && handle < 0) handle = open(Dev, O_RDWR);
+	while (++GPC <= 10 && I2C_Bus_Data.Handle < 0)
+		I2C_Bus_Data.Handle = open(I2C_Bus_Data.Dev, O_RDWR);
 	GPC=0;
-	while (++GPC <= 10 && io!=0) io = ioctl(handle, I2C_TENBIT, 0);	// ioctl(handle, I2C_TENBIT, address_config);
+	// ioctl(handle, I2C_TENBIT, address_config);
+	while (++GPC <= 10 && io!=0) io = ioctl(I2C_Bus_Data.Handle, I2C_TENBIT, 0);
 }
 
-bool I2C_Bus::Write(u16 Addr, u8 RegAddr, u8 *Data, char Bytes){
+int I2C_Bus_Read(u16 Addr, u8 RegAddr, u8 *Data, char Bytes){
+	struct i2c_msg msg[2];
+
+	I2C_Bus_Data.Queue.nmsgs = 2;
+	I2C_Bus_Data.Queue.msgs = msg;
+
+	I2C_Bus_Data.Queue.msgs[0].addr = Addr;
+	I2C_Bus_Data.Queue.msgs[0].len = 1;
+	I2C_Bus_Data.Queue.msgs[0].flags = 0;
+	I2C_Bus_Data.Queue.msgs[0].buf = &RegAddr;
+
+	I2C_Bus_Data.Queue.msgs[1].addr = Addr;
+	I2C_Bus_Data.Queue.msgs[1].len = Bytes;
+	I2C_Bus_Data.Queue.msgs[1].flags = I2C_M_RD;
+	I2C_Bus_Data.Queue.msgs[1].buf = Data;
+
+	return ioctl(I2C_Bus_Data.Handle, I2C_RDWR, &I2C_Bus_Data.Queue)!=2;
+}
+
+int I2C_Bus_Write(u16 Addr, u8 RegAddr, u8 *Data, char Bytes){
     char GPC;														// General-Purpose Counter
 	struct i2c_msg msg[1];
 
@@ -48,36 +62,28 @@ bool I2C_Bus::Write(u16 Addr, u8 RegAddr, u8 *Data, char Bytes){
     for (GPC=0; GPC<Bytes; ++GPC){
         Buffer[1+GPC] = Data[GPC];
     }
-    Queue.nmsgs = 1;
-    Queue.msgs = msg;
+    I2C_Bus_Data.Queue.nmsgs = 1;
+    I2C_Bus_Data.Queue.msgs = msg;
 
-    Queue.msgs[0].addr = Addr;
-    Queue.msgs[0].len = Bytes+1;
-    Queue.msgs[0].flags = 0;
-    Queue.msgs[0].buf = Buffer;
+    I2C_Bus_Data.Queue.msgs[0].addr = Addr;
+    I2C_Bus_Data.Queue.msgs[0].len = Bytes+1;
+    I2C_Bus_Data.Queue.msgs[0].flags = 0;
+    I2C_Bus_Data.Queue.msgs[0].buf = Buffer;
 
-	return ioctl(handle, I2C_RDWR, &Queue)!=Bytes;
+	return ioctl(I2C_Bus_Data.Handle, I2C_RDWR, &I2C_Bus_Data.Queue)!=Bytes;
 }
 
-bool I2C_Bus::Read(u16 Addr, u8 RegAddr, u8 *Data, char Bytes){
-	struct i2c_msg msg[2];
-
-    Queue.nmsgs = 2;
-    Queue.msgs = msg;
-
-    Queue.msgs[0].addr = Addr;
-    Queue.msgs[0].len = 1;
-    Queue.msgs[0].flags = 0;
-    Queue.msgs[0].buf = &RegAddr;
-
-    Queue.msgs[1].addr = Addr;
-    Queue.msgs[1].len = Bytes;
-    Queue.msgs[1].flags = I2C_M_RD;
-    Queue.msgs[1].buf = Data;
-
-	return ioctl(handle, I2C_RDWR, &Queue)!=2;
-}
-
-
+struct S_I2C_Bus_Data{
+	struct i2c_rdwr_ioctl_data Queue;
+	char Dev[];
+	int Handle;
+	void (*Init)	(const char *Device);
+	void (*Read)	(u16 Addr, u8 RegAddr, u8 *Data, char Bytes);
+	void (*Write)	(u16 Addr, u8 RegAddr, u8 *Data, char Bytes);
+} I2C_Bus_Data = {
+		.Init = &I2C_Bus_Init,
+		.Read = &I2C_Bus_Read,
+		.Write = &I2C_Bus_Write
+};
 
 #endif // #ifndef SCP_HwCtrl__Platform__I2C_Bus_h

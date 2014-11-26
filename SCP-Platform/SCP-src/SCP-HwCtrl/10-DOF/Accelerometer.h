@@ -21,8 +21,6 @@
 
 #include "../../SCP-Include/SCP-Config.h"
 #include "../HwPlatforms/I2C-Bus.h"
-#include <eigen3/Eigen/Dense>
-#include "IMU.h"
 
 // ************************************************************************
 // 		Software API Definition for ADXL345 Digital Accelerometer
@@ -131,164 +129,182 @@
 #define ADXL345_FifoStatus_FifoTrig		1<<7
 #define ADXL345_FifoStatus_Entries		0x1F	// 0b00011111
 
-using namespace HwCtrl;
+// ************************************************************************
 
-class IMU::Accelerometer{
-	public:
-		class C_ADXL345{
-			public:
-				u8 DevID;
-				u8 TapThreshhold;
-				u8 XOffset;
-				u8 YOffset;
-				u8 ZOffset;
-				u8 TapDuration;
-				u8 TapLatency;
-				u8 TapWindow;
-				u8 ActivityThreshold;
-				u8 InactivityThreshold;
-				u8 InactivityTime;
-				u8 ActInactCtrl;
-				u8 FFThreshold;
-				u8 FFTime;
-				u8 TapAxes;
-				u8 ActTapStatus;
-				u8 BWRate;
-				u8 PowerCtrl;
-				u8 IntEnable;
-				u8 IntMap;
-				u8 IntSource;
-				u8 DataFormat;
-				u8 DataX0;
-				u8 DataX1;
-				u8 DataY0;
-				u8 DataY1;
-				u8 DataZ0;
-				u8 DataZ1;
-				u8 FifoCtrl;
-				u8 FifoStatus;
-				float Sensitivity;
-				C_ADXL345(){
-					DevID				= 0x00;
-					TapThreshhold		= 0x1D;
-					XOffset				= 0x1E;
-					YOffset				= 0x1F;
-					ZOffset				= 0x20;
-					TapDuration			= 0x21;
-					TapLatency			= 0x22;
-					TapWindow			= 0x23;
-					ActivityThreshold	= 0x24;
-					InactivityThreshold	= 0x25;
-					InactivityTime		= 0x26;
-					ActInactCtrl		= 0x27;
-					FFThreshold			= 0x28;
-					FFTime				= 0x29;
-					TapAxes				= 0x2A;
-					ActTapStatus		= 0x2B;
-					BWRate				= 0x2C;
-					PowerCtrl			= 0x2D;
-					IntEnable			= 0x2E;
-					IntMap				= 0x2F;
-					IntSource			= 0x30;
-					DataFormat			= 0x31;
-					DataX0				= 0x32;
-					DataX1				= 0x33;
-					DataY0				= 0x34;
-					DataY1				= 0x35;
-					DataZ0				= 0x36;
-					DataZ1				= 0x37;
-					FifoCtrl			= 0x38;
-					FifoStatus			= 0x39;
-					Sensitivity			= 0.0039;
-				}
-		} ADXL345;
-		Accelerometer(I2C_Bus &I2C_Interface);
-		bool UpdateData();
-		LinAlg::Vector3d *AccelerationP();
-		bool config(void *ConfigPacket);
-	private:
-		u8 GPB1;																// General-Purpose Buffer 1
-		u8 GPB2;																// General-Purpose Buffer 2
-		u8 AccelI2CAddress;
-		I2C_Bus *IMU_Bus;
-		LinAlg::Vector3d Acceleration;
+#ifndef SCP_Current_Gravity
+	#define SCP_Current_Gravity 9.81
+#endif
+
+struct S_ADXL345_Accelerometer{
+		const u8 DevID;
+		const u8 TapThreshhold;
+		const u8 XOffset;
+		const u8 YOffset;
+		const u8 ZOffset;
+		const u8 TapDuration;
+		const u8 TapLatency;
+		const u8 TapWindow;
+		const u8 ActivityThreshold;
+		const u8 InactivityThreshold;
+		const u8 InactivityTime;
+		const u8 ActInactCtrl;
+		const u8 FFThreshold;
+		const u8 FFTime;
+		const u8 TapAxes;
+		const u8 ActTapStatus;
+		const u8 BWRate;
+		const u8 PowerCtrl;
+		const u8 IntEnable;
+		const u8 IntMap;
+		const u8 IntSource;
+		const u8 DataFormat;
+		const u8 DataX0;
+		const u8 DataX1;
+		const u8 DataY0;
+		const u8 DataY1;
+		const u8 DataZ0;
+		const u8 DataZ1;
+		const u8 FifoCtrl;
+		const u8 FifoStatus;
+		// TODO: [Critical] Fix Float Type!
+		float Sensitivity;
+} ADXL345_Accelerometer = {
+		.DevID				= 0x00,
+		.TapThreshhold		= 0x1D,
+		.XOffset			= 0x1E,
+		.YOffset			= 0x1F,
+		.ZOffset			= 0x20,
+		.TapDuration		= 0x21,
+		.TapLatency			= 0x22,
+		.TapWindow			= 0x23,
+		.ActivityThreshold	= 0x24,
+		.InactivityThreshold= 0x25,
+		.InactivityTime		= 0x26,
+		.ActInactCtrl		= 0x27,
+		.FFThreshold		= 0x28,
+		.FFTime				= 0x29,
+		.TapAxes			= 0x2A,
+		.ActTapStatus		= 0x2B,
+		.BWRate				= 0x2C,
+		.PowerCtrl			= 0x2D,
+		.IntEnable			= 0x2E,
+		.IntMap				= 0x2F,
+		.IntSource			= 0x30,
+		.DataFormat			= 0x31,
+		.DataX0				= 0x32,
+		.DataX1				= 0x33,
+		.DataY0				= 0x34,
+		.DataY1				= 0x35,
+		.DataZ0				= 0x36,
+		.DataZ1				= 0x37,
+		.FifoCtrl			= 0x38,
+		.FifoStatus			= 0x39,
+		.Sensitivity		= 0.0039
 };
 
-bool IMU::Accelerometer::UpdateData(){
+void Accelerometer_Init(struct S_I2C_Bus_Data *I2C_Bus, u8 Accelerometer_I2CAddr){
+	char GPB1;
+	char GPB2;
+	Accelerometer.I2C_Address = Accelerometer_I2CAddr;
+	Accelerometer.IMU_Bus = I2C_Bus;
+	Accelerometer.Acceleration[0] = 0;
+	Accelerometer.Acceleration[1] = 0;
+	Accelerometer.Acceleration[2] = 0;
 	GPB1 = 0;
 	GPB2 = 0;
-	Acceleration << 0, 0, 0;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataX1, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataX0, &GPB2, 1)) return true;
-	Acceleration(0) = ((u16) ((GPB1<<8) | GPB2)) * ADXL345.Sensitivity * SCP_Current_Gravity;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataY1, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataY0, &GPB2, 1)) return true;
-	Acceleration(1) = ((u16) ((GPB1<<8) | GPB2)) * ADXL345.Sensitivity * SCP_Current_Gravity;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataZ1, &GPB1, 1)) return true;
-	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DataZ0, &GPB2, 1)) return true;
-	Acceleration(2) = ((u16) ((GPB1<<8) | GPB2)) * ADXL345.Sensitivity * SCP_Current_Gravity;
-	return false;
-}
-
-IMU::Accelerometer::Accelerometer(I2C_Bus &I2C_Interface){
-	AccelI2CAddress = SCP_Gyroscope_I2CAddr;
-	IMU_Bus = I2C_Interface;
-	Acceleration << 0, 0, 0;
-	GPB1 = 0;
-	GPB2 = 0;
-//	if (IMU_Bus->Read(AccelI2CAddress, ADXL345.DevID, &GPB1, 1)!=0xE5) //TODO:[Critical] Implement Error-Notifying Mechanism
+	//TODO:[Critical] Implement Error-Notifying Mechanism
+//	if (IMU_Bus->Read(AccelI2CAddress, Accelerometer.RegMap->DevID, &GPB1, 1)!=0xE5)
 	GPB1 = 0 | ADXL345_PowerCtrl_Measure;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.PowerCtrl, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->PowerCtrl, &GPB1, 1);
 
 	GPB1 = 0;
-	IMU_Bus->Read(AccelI2CAddress, ADXL345.DataFormat, &GPB1, 1);
+	Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataFormat, &GPB1, 1);
 	// Preserve the following values untouched
-	GPB1 &= (ADXL345_DataFormat_SelfTest | ADXL345_DataFormat_SPI | ADXL345_DataFormat_IntInvert | ADXL345_DataFormat_FullRes);
+	GPB1 &= (ADXL345_DataFormat_SelfTest | \
+			ADXL345_DataFormat_SPI | \
+			ADXL345_DataFormat_IntInvert | \
+			ADXL345_DataFormat_FullRes);
 	// Set the Range to +/- 2G and FullResolution
 	GPB1 |=  ADXL345_DataFormat_Range_2G | ADXL345_DataFormat_FullRes;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.DataFormat, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->DataFormat, &GPB1, 1);
 
 	GPB1 = 0 | ADXL345_BWRate_Rate_100Hz;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.BWRate, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->BWRate, &GPB1, 1);
 
 	GPB1 = 0;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.TapThreshhold, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.TapDuration, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.TapLatency, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.TapWindow, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.ActivityThreshold, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.InactivityThreshold, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.InactivityTime, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.FFThreshold, &GPB1, 1);
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.FFTime, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->TapThreshhold, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->TapDuration, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->TapLatency, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->TapWindow, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->ActivityThreshold, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->InactivityThreshold, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->InactivityTime, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->FFThreshold, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->FFTime, &GPB1, 1);
 
 	GPB1 = 0;
-	IMU_Bus->Read(AccelI2CAddress, ADXL345.ActInactCtrl, &GPB1, 1);
+	Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->ActInactCtrl, &GPB1, 1);
 	// Preserve the following values untouched
 	GPB1 &= (ADXL345_ActInactCtrl_Act | ADXL345_ActInactCtrl_Inact);
 	// Disable any axis participation on detecting Activity or Inactivity
 	GPB1 |=  0;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.ActInactCtrl, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->ActInactCtrl, &GPB1, 1);
 
 	GPB1 = 0;
-	IMU_Bus->Read(AccelI2CAddress, ADXL345.TapAxes, &GPB1, 1);
+	Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->TapAxes, &GPB1, 1);
 	// Preserve the following values untouched, 0x0F<<4 Corresponds to not well-defined bits on Datasheet
 	GPB1 &= (0x0F<<4 | ADXL345_TapAxes_Suppress);
 	// Disable All Axis Participation on Tap Detection
 	GPB1 |=  0;
-	IMU_Bus->Write(AccelI2CAddress, ADXL345.TapAxes, &GPB1, 1);
+	Accelerometer.IMU_Bus->Write(Accelerometer.I2C_Address, Accelerometer.RegMap->TapAxes, &GPB1, 1);
 
 	UpdateData();
 }
 
-LinAlg::Vector3d *IMU::Accelerometer::AccelerationP(){
-	return &Acceleration;
+char Accelerometer_UpdateData(){
+	char ret;
+	char GPB1 = 0;
+	char GPB2 = 0;
+	Accelerometer.Acceleration[0] = 0;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataX1, &GPB1, 1)) ret |= 1<<0;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataX0, &GPB2, 1)) ret |= 1<<1;
+	Accelerometer.Acceleration[0] = ((u16) ((GPB1<<8) | GPB2)) * Accelerometer.RegMap->Sensitivity * SCP_Current_Gravity;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataY1, &GPB1, 1)) ret |= 1<<2;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataY0, &GPB2, 1)) ret |= 1<<3;
+	Accelerometer.Acceleration[1] = ((u16) ((GPB1<<8) | GPB2)) * Accelerometer.RegMap->Sensitivity * SCP_Current_Gravity;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataZ1, &GPB1, 1)) ret |= 1<<4;
+	if (Accelerometer.IMU_Bus->Read(Accelerometer.I2C_Address, Accelerometer.RegMap->DataZ0, &GPB2, 1)) ret |= 1<<5;
+	Accelerometer.Acceleration[2] = ((u16) ((GPB1<<8) | GPB2)) * Accelerometer.RegMap->Sensitivity * SCP_Current_Gravity;
+	return ret;
 }
 
-bool IMU::Accelerometer::config(void *ConfigPacket){
-	//TODO:[Optional] Implement Config Manager
-	// Set and Get of Range and DataRate suggested
-	return false;
+void Accelerometer_UpdateSysStatus(){
+
 }
+
+int Accelerometer_Config(){
+	int ret = 0;
+	//TODO:[Optional] Implement Config Manager
+	// Set and Get Range and DataRate suggested
+	return ret;
+}
+
+struct S_Accelerometer{
+		struct S_ADXL345_Accelerometer *RegMap;
+		struct S_I2C_Bus_Data *IMU_Bus;
+		u8 I2C_Address;
+		long Acceleration[3];
+		char SysStatus;
+		void (*Init) 		(struct S_I2C_Bus_Data *I2C_Bus, u8 Gyroscope_I2CAddr);
+		char (*UpdateData) 	(void);
+		void (*UpdateSysStatus)	(void);
+		int (*Config) 		(void *ConfigPacket);
+} Accelerometer = {
+		.RegMap = &ADXL345_Accelerometer,
+		.Init	= &Accelerometer_Init,
+		.UpdateData		 = &Accelerometer_UpdateData,
+		.UpdateSysStatus = &Accelerometer_UpdateSysStatus,
+		.Config			 = &Accelerometer_Config
+};
 
 #endif //#ifndef SCP_HwCtrl__10_DOF__Accelerometer_h
